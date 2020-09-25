@@ -22,6 +22,6 @@ public class Runner {
         System.out.println("Your age " + age);
         if (toDay.get(Calendar.DATE) == BirthDay.get(Calendar.DATE)) {
             System.out.println("Happy BirthDay!!!");
-        }
+            }
     }
 }

@@ -13,6 +13,7 @@ public class Runner {
         println(arrNumbers);
         System.out.println();
         printn(arrNumbers);
+
     }
 
     public static void println(int[] arr) {
