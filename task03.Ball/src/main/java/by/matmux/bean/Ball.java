@@ -5,11 +5,12 @@ import java.util.Objects;
 public class Ball {
     private Color color = Color.GREEN;
     private int cost;
-    private final int weight = 1;
+    private int weight;
 
-    public Ball () {
+    public Ball() {
         color = color.getRandomColor();
         cost = color.getCost();
+        weight = color.getWeight();
     }
 
     public Color getColor() {
@@ -25,12 +26,13 @@ public class Ball {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+    public boolean equals(final Object o) {
+        if (this == o) { return true; }
+        if (o == null || getClass() != o.getClass()) { return false; }
         Ball ball = (Ball) o;
         return cost == ball.cost &&
-                color == ball.color;
+                color == ball.color &&
+                weight == ball.weight;
     }
 
     @Override

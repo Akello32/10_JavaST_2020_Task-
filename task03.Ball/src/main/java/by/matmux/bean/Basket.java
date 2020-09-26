@@ -1,13 +1,16 @@
 package by.matmux.bean;;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Basket {
     private ArrayList<Ball> ballsList = new ArrayList<>();
-    private int quantity;
-    private int weightAllBallInBasket;
 
-    public void addBallInToList (Ball ball) { ballsList.add(ball); }
+    public void addBallInToList (final Ball ball) { ballsList.add(ball); }
+
+    public ArrayList<Ball> getBallsList() {
+        return ballsList;
+    }
 
     @Override
     public String toString() {
