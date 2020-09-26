@@ -9,16 +9,27 @@ public final class TestingForPerfection {
     }
 
     /** Array with perfect numbers. */
-    private static final int[] ARR_OF_PERFECT_NUMBER = {6, 28, 496, 8128, 33550336};
+/*    private static final int[] ARR_OF_PERFECT_NUMBER = {6, 28, 496, 8128, 33550336};*/
 
     /** Checks whether the number is perfect and returns them. */
     public static boolean testingForPerfection(final Number n) {
-        for (int i : ARR_OF_PERFECT_NUMBER) {
-            if (n.getValue() == i) {
-                return true;
+        int sum = 0;
+        int i = 1;
+
+        if (n.getValue() == 6) {
+            return true;
+        } else {
+            while (!(sum == n.getValue())) {
+                sum += Math.pow(i, 3);
+                i += 2;
             }
         }
 
-        return false;
+        if (sum == n.getValue()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
+
