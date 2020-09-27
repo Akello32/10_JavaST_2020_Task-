@@ -12,6 +12,14 @@ public class Basket {
         return ballsList;
     }
 
+    public int getSizeBasket() {
+        return ballsList.size();
+    }
+
+    public Ball getBall(int i) {
+        return ballsList.get(i);
+    }
+
     @Override
     public String toString() {
         StringBuilder b1 = new StringBuilder();

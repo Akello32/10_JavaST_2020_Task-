@@ -5,27 +5,36 @@ import by.matmux.bean.Basket;
 import by.matmux.bean.BasketList;
 
 import java.util.ArrayList;
-
-// TODO доделать реализацию метода
+import java.util.Collections;
 
 public class CheckBasketEqual {
     public int checkBasketEqual (final BasketList basketList) {
         int countOfEqualityBasket = 0;
+        int countOfEqualityBalls = 0;
 
-        if (basketList.getBasketList().size() == 1) {
+        if (basketList.getSizeList() == 1 || basketList.getSizeList() == 0) {
             return 0;
         }
 
-        for (int i = 0; i < basketList.getBasketList().size(); i++) {
-            ArrayList<Ball> listOfBall = basketList.getBasketList().get(i).getBallsList();
-            for (int k = 0; k < listOfBall.size(); k++) {
-                for (int j = k + 1; j < listOfBall.size(); j++) {
-                    if (listOfBall.get(k).equals(listOfBall.get(j))) {
-                        continue;
-                    } else { break; }
+        for (int i = 0; i < basketList.getSizeList(); i++) {
+            Basket firstList = basketList.getBasket(i);
+            Basket secondList = basketList.getBasket(i+1);
+
+            if (firstList.getSizeBasket() != secondList.getSizeBasket()) {
+                return 0;
+            }
+
+            for (int k = 0; k < firstList.getSizeBasket(); k++) {
+                for (int j = 0; j < secondList.getSizeBasket(); j++) {
+                    if (!firstList.getBall(k).equals(firstList.getBall(j))) {
+                        k = firstList.getSizeBasket();
+                    } else { countOfEqualityBalls++; }
                 }
             }
-            countOfEqualityBasket++;
+
+            if (countOfEqualityBalls == firstList.getSizeBasket()) {
+                countOfEqualityBasket++;
+            }
         }
         return countOfEqualityBasket;
     }

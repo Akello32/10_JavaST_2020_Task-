@@ -1,6 +1,7 @@
 package by.matmux.bean;
 
 public enum Color {
+    // TODO переделать этот класс чтобы значения стоимости и вес можно было вводить пользователю
     RED(3, 1),
     GREEN(5,3),
     PINK(2, 1),
