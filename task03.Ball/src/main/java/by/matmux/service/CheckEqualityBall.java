@@ -2,14 +2,15 @@ package by.matmux.service;
 
 import by.matmux.bean.Ball;
 import by.matmux.bean.Basket;
-import by.matmux.bean.BasketList;
 import by.matmux.bean.Color;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
-
 public class CheckEqualityBall {
+    /**
+     * @param basket
+     * @param color
+     * @return string with the result of the function,
+     * compares balls of the same color by cost and weight
+     */
     public String checkEquality(final Basket basket, final Color color) {
 
         if (basket.getSizeBasket() == 0 || basket.getSizeBasket() == 1) {

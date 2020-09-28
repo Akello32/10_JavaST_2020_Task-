@@ -1,3 +1,7 @@
+/**
+ * Factory class for calling functions from the Service package
+ */
+
 package by.matmux.service;
 
 public final class ServiceFactory {
@@ -10,7 +14,9 @@ public final class ServiceFactory {
     private final CheckWeight checkWeight = new CheckWeight();
     private final OutputToCost outputToCost = new OutputToCost();
 
-    private ServiceFactory() {}
+    private ServiceFactory() {
+
+    }
 
     public static ServiceFactory getInstance() {
         return instance;

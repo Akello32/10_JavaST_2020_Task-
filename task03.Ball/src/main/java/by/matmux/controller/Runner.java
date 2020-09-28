@@ -1,10 +1,11 @@
+/**
+ * Class that starts the program and calls the user menu
+ */
+
 package by.matmux.controller;
 
-import by.matmux.bean.Basket;
 import by.matmux.bean.BasketList;
 import by.matmux.view.Consumer;
-
-import java.util.ArrayList;
 
 public class Runner {
     public static void main(String[] args) {

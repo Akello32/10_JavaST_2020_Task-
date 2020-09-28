@@ -1,9 +1,6 @@
 package by.matmux.controller.command;
 
-import by.matmux.bean.Basket;
 import by.matmux.bean.BasketList;
-import by.matmux.bean.Color;
-import by.matmux.controller.command.Command;
 import by.matmux.service.CheckQuantityColor;
 import by.matmux.service.ServiceFactory;
 import by.matmux.view.Consumer;

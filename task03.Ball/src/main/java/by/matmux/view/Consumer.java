@@ -7,6 +7,9 @@ import by.matmux.bean.Color;
 import java.util.Scanner;
 
 public final class Consumer {
+    /**
+     * @return number to call the basket from basketList
+     */
     public int enterNumBasket() {
         System.out.println("Enter a basket number");
         Scanner sc = new Scanner(System.in);
@@ -14,6 +17,9 @@ public final class Consumer {
         return sc.nextInt() - 1;
     }
 
+    /**
+     * @return number
+     */
     public int enterNum() {
         System.out.println("Enter a number");
         Scanner sc = new Scanner(System.in);
@@ -21,6 +27,9 @@ public final class Consumer {
         return sc.nextInt();
     }
 
+    /**
+     * @return colors
+     */
     public Color enterColorBall() {
         System.out.println("Enter a balls color");
         Scanner sc = new Scanner(System.in);
@@ -28,6 +37,11 @@ public final class Consumer {
         return Color.valueOf(sc.next());
     }
 
+    /**
+     * allows the user to initialize the balls themselves
+     * @param basket
+     * @return
+     */
     public String fillTheBasket(final Basket basket) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter a number of balls");
@@ -42,9 +56,13 @@ public final class Consumer {
             basket.addBallInToList(new Ball(color, cost, weight));
         }
 
-        return null;
+        return "Basket is full";
     }
 
+    /**
+     * shows the user the name of the commands and what they do
+     * @return request with the command name
+     */
     public String setRequest() {
         System.out.println("\n Enter FILLER_BASKET to fill the basket \n" +
                 "Enter ADD_BASKET to create the basket \n" +

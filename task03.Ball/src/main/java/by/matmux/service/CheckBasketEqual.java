@@ -1,14 +1,15 @@
 package by.matmux.service;
 
-import by.matmux.bean.Ball;
 import by.matmux.bean.Basket;
 import by.matmux.bean.BasketList;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
 public class CheckBasketEqual {
-    public String checkBasketEqual (final BasketList basketList) {
+    /**
+     * @param basketList
+     * @return string with the result of executing the function,
+     * compares baskets by the set of balls in them
+     */
+    public String checkBasketEqual(final BasketList basketList) {
         int countOfEqualityBasket = 0;
         int countOfEqualityBalls = 0;
 
@@ -18,7 +19,7 @@ public class CheckBasketEqual {
 
         for (int i = 0; i < basketList.getSizeList(); i++) {
             Basket firstList = basketList.getBasket(i);
-            Basket secondList = basketList.getBasket(i+1);
+            Basket secondList = basketList.getBasket(i + 1);
 
             if (firstList.getSizeBasket() != secondList.getSizeBasket()) {
                 return "Not found the same baskets \n";
@@ -28,7 +29,9 @@ public class CheckBasketEqual {
                 for (int j = 0; j < secondList.getSizeBasket(); j++) {
                     if (!firstList.getBall(k).equals(firstList.getBall(j))) {
                         k = firstList.getSizeBasket();
-                    } else { countOfEqualityBalls++; }
+                    } else {
+                        countOfEqualityBalls++;
+                    }
                 }
             }
 
