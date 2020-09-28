@@ -1,13 +1,17 @@
+/**
+ * The class contains basic fields that describe the Basket
+ * entity and methods for accessing them */
+
 package by.matmux.bean;;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class Basket {
     private ArrayList<Ball> ballsList = new ArrayList<>();
 
-    public void addBallInToList (final Ball ball) { ballsList.add(ball); }
-
+    public void addBallInToList(final Ball ball) {
+        ballsList.add(ball);
+    }
     public ArrayList<Ball> getBallsList() {
         return ballsList;
     }
@@ -16,7 +20,7 @@ public class Basket {
         return ballsList.size();
     }
 
-    public Ball getBall(int i) {
+    public Ball getBall(final int i) {
         return ballsList.get(i);
     }
 

@@ -1,21 +1,23 @@
+/**
+ * This class was created for storing buckets
+ */
+
 package by.matmux.bean;
 
 import java.util.ArrayList;
 
-public class BasketList {
-    private ArrayList<Basket> basketList = new ArrayList<>();
+public final class BasketList {
+    private final ArrayList<Basket> listOfBasket = new ArrayList<>();
 
     public int getSizeList() {
-        return basketList.size();
+        return listOfBasket.size();
     }
 
     public Basket getBasket(final int i) {
-        return basketList.get(i);
+        return listOfBasket.get(i);
     }
 
-    public void addBasketInToList(final Basket basket) { basketList.add(basket); }
-
-    public ArrayList<Basket> getBasketList() {
-        return basketList;
+    public void addBasketInToList(final Basket basket) {
+        listOfBasket.add(basket);
     }
 }

@@ -1,16 +1,22 @@
+/**
+ * Еhe class contains basic fields that describe the entity Ball of the
+ * object and methods for accessing them
+ */
+
+
 package by.matmux.bean;
 
 import java.util.Objects;
 
 public class Ball {
-    private Color color = Color.GREEN;
+    private Color color;
     private int cost;
     private int weight;
 
-    public Ball() {
-        color = color.getRandomColor();
-        cost = color.getCost();
-        weight = color.getWeight();
+    public Ball(final Color color, final int cost, final int weight) {
+        this.color = color;
+        this.cost = cost;
+        this.weight = weight;
     }
 
     public Color getColor() {
@@ -27,8 +33,12 @@ public class Ball {
 
     @Override
     public boolean equals(final Object o) {
-        if (this == o) { return true; }
-        if (o == null || getClass() != o.getClass()) { return false; }
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Ball ball = (Ball) o;
         return cost == ball.cost &&
                 color == ball.color &&

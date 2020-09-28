@@ -10,10 +10,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class CheckEqualityBall {
-    public int checkEquality(final Basket basket, Color color) {
+    public String checkEquality(final Basket basket, final Color color) {
 
         if (basket.getSizeBasket() == 0 || basket.getSizeBasket() == 1) {
-            return 0;
+            return "Not found the same balls \n";
         }
 
         int countOfEqualBalls = 0;
@@ -27,6 +27,6 @@ public class CheckEqualityBall {
                 }
             }
         }
-        return countOfEqualBalls;
+        return "You have a " + countOfEqualBalls + " equals balls \n";
     }
 }

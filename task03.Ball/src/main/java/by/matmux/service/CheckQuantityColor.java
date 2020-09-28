@@ -5,10 +5,10 @@ import by.matmux.bean.Basket;
 import by.matmux.bean.Color;
 
 public class CheckQuantityColor {
-    public int checkQuantity(final Basket basket, final Color colour) {
+    public String checkQuantity(final Basket basket, final Color colour) {
         int quantityBalls = 0;
         if (basket.getBallsList().isEmpty()) {
-            System.out.println("Basket is empty");
+            System.out.println("Basket is empty \n");
         } else {
             for (Ball b : basket.getBallsList()) {
                 if (b.getColor() == colour) {
@@ -16,6 +16,6 @@ public class CheckQuantityColor {
                 }
             }
         }
-        return quantityBalls;
+        return "Balls of " + colour.toString() + " " + quantityBalls  + " \n";
     }
 }

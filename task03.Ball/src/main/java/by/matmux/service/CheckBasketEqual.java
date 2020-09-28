@@ -8,12 +8,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class CheckBasketEqual {
-    public int checkBasketEqual (final BasketList basketList) {
+    public String checkBasketEqual (final BasketList basketList) {
         int countOfEqualityBasket = 0;
         int countOfEqualityBalls = 0;
 
         if (basketList.getSizeList() == 1 || basketList.getSizeList() == 0) {
-            return 0;
+            return "Not found the same baskets \n";
         }
 
         for (int i = 0; i < basketList.getSizeList(); i++) {
@@ -21,7 +21,7 @@ public class CheckBasketEqual {
             Basket secondList = basketList.getBasket(i+1);
 
             if (firstList.getSizeBasket() != secondList.getSizeBasket()) {
-                return 0;
+                return "Not found the same baskets \n";
             }
 
             for (int k = 0; k < firstList.getSizeBasket(); k++) {
@@ -36,6 +36,6 @@ public class CheckBasketEqual {
                 countOfEqualityBasket++;
             }
         }
-        return countOfEqualityBasket;
+        return  "You have a " + countOfEqualityBasket + " equals baskets \n";
     }
 }

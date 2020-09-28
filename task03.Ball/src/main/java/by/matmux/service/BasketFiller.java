@@ -2,13 +2,20 @@ package by.matmux.service;
 
 import by.matmux.bean.Ball;
 import by.matmux.bean.Basket;
+import by.matmux.bean.Color;
 
-/**
- *
- */
+
 public class BasketFiller {
-    public Basket basketRandomFiller (int number ,Basket b1) {
-        for (int i = 0; i < number; i++) { b1.addBallInToList(new Ball()); }
-        return b1;
+    public String basketRandomFiller (final int number ,final Basket b1) {
+        for (int i = 0; i < number; i++) {
+            Color color = Color.GREEN;
+            color = color.getRandomColor();
+            int cost = (int) (Math.random() * number) + 1;
+            int weight = (int) (Math.random() * number) + 1;
+            Ball ball = new Ball(color, cost, weight);
+            b1.addBallInToList(ball);
+        }
+
+        return "Basket is full \n";
     }
 }
