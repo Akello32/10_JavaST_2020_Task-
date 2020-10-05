@@ -7,7 +7,7 @@ package by.matmux.service;
 public final class ServiceFactory {
     private static final ServiceFactory instance = new ServiceFactory();
 
-    private final BasketFiller basketFiller = new BasketFiller();
+    private final BasketRandomFiller basketRandomFiller = new BasketRandomFiller();
     private final CheckBasketEqual checkBasketEqual = new CheckBasketEqual();
     private final CheckEqualityBall checkEqualityBall = new CheckEqualityBall();
     private final CheckQuantityColor checkQuantityColor = new CheckQuantityColor();
@@ -22,8 +22,8 @@ public final class ServiceFactory {
         return instance;
     }
 
-    public BasketFiller getBasketFiller() {
-        return basketFiller;
+    public BasketRandomFiller getBasketFiller() {
+        return basketRandomFiller;
     }
 
     public CheckBasketEqual getCheckBasketEqual() {

@@ -14,6 +14,8 @@ public final class BasketList {
     }
 
     public Basket getBasket(final int i) {
+        if (i > listOfBasket.size() || i < 0) {  }
+
         return listOfBasket.get(i);
     }
 

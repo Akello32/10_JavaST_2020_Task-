@@ -47,7 +47,7 @@ public class Ball {
 
     @Override
     public int hashCode() {
-        return Objects.hash(color, cost);
+        return Objects.hash(color, cost, weight);
     }
 
     @Override
