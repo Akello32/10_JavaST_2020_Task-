@@ -7,12 +7,12 @@ public class TranspositionArray {
         CheckSquare checkSquare = new CheckSquare();
         JaggedArray tmpArr;
         if (array == null || array.getJagArr() == null) {
-            return null;
+            return array;
         }
 
-        for (int i = 0; i < array.length(); i++) {
+        for (int i = 0; i < array.length() - 1; i++) {
             int tmp = array.getRow(i).length;
-            if (tmp != array.getRow(i + 1).length) { return null; }
+            if (tmp != array.getRow(i + 1).length) { return array; }
         }
 
         if (checkSquare.isSquare(array)) {

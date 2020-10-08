@@ -25,9 +25,7 @@ public class JaggedArray {
         jagArr[i] = arr;
     }
 
-    public int[] getRow(final int x) {
-        return jagArr[x];
-    }
+    public int[] getRow(final int x) { return jagArr[x]; }
 
     @Override
     public boolean equals(Object o) {

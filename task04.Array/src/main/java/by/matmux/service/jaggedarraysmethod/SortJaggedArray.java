@@ -28,7 +28,7 @@ public class SortJaggedArray {
     public String maxElemRow(JaggedArray array, boolean decrease) {
         int[] maxArr = new int[array.length()];
         for (int i = 0; i < array.length(); i++) {
-            int max = array.getRow(0)[0];
+            int max = array.getRow(i)[0];
             for (int j : array.getRow(i)) {
                 if (j > max) { max = j; }
             }
@@ -66,20 +66,20 @@ public class SortJaggedArray {
      */
     private String sortJagged(JaggedArray array, int[] arrTmp, boolean decrease) {
         if (decrease) {
-            for (int i = array.length(); i >= 1; i--) {
-                for (int j  = 0; j < array.length(); j++) {
-                    if (arrTmp[j] > arrTmp[j]) {
-                        swap(arrTmp, j, j-1 );
-                        swapArr(array, i, i + 1);
+            for (int i = array.length() - 1; i >= 1; i--) {
+                for (int j  = 0; j < i; j++) {
+                    if (arrTmp[j] > arrTmp[j + 1]) {
+                        swap(arrTmp, j, j+1 );
+                        swapArr(array, j, j + 1);
                     }
                 }
             }
         } else {
-            for (int i = array.length(); i >= 1; i--) {
-                for (int j  = 0; j < array.length(); j++) {
-                    if (arrTmp[j] < arrTmp[j]) {
-                        swap(arrTmp, j, j-1 );
-                        swapArr(array, i, i + 1);
+            for (int i = array.length() - 1; i >= 1; i--) {
+                for (int j  = 0; j < i; j++) {
+                    if (arrTmp[j] < arrTmp[j + 1]) {
+                        swap(arrTmp, j, j+1 );
+                        swapArr(array, j, j + 1);
                     }
                 }
             }

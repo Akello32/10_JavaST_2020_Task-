@@ -16,7 +16,7 @@ public class Runner {
         Array array = new Array(new int[10]);
         int[][] a = {{321, 1445, 411, 66, 1}, {62, 97}, {111, 555, 56}, {234}};
         JaggedArray jaggedArray = new JaggedArray(a);
-        int[][] a1 = {{152, 151, 911, 6, 10}, {6, 45}, {105, 191, 50}, {4}};
+        int[][] a1 = {{152, 151, 911, 6, 10}, {6, 45, 7, 8, 9}, {105, 191, 64, 43,50}, {4, 2, 4, 5,1}};
         JaggedArray jaggedArray1 = new JaggedArray(a1);
 
         String selectedCommand;
@@ -35,8 +35,8 @@ public class Runner {
             } else if (selectedCommand.equals("TRANSPOSITION") || selectedCommand.equals("CHECK_SQUARE")
                         || selectedCommand.equals("SORT_SUM_ROW") || selectedCommand.equals("SORT_MIN_IN_ROW")
                         || selectedCommand.equals("SORT_MAX_IN_ROW") || selectedCommand.equals("MULTIPLICATION") ) {
-                consumer.show(controllerForJaggArr.executeTask(selectedCommand, jaggedArray, consumer));
-                consumer.show(jaggedArray);
+                consumer.show(controllerForJaggArr.executeTask(selectedCommand, jaggedArray1, consumer));
+                consumer.show(jaggedArray1);
             } else {
                 consumer.show(controllerForArray.executeTask(selectedCommand, array, consumer));
                 consumer.show(array);
