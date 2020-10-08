@@ -1,7 +1,7 @@
 package by.matmux.controller.command;
 
 import by.matmux.bean.BasketList;
-import by.matmux.service.BasketRandomFiller;
+import by.matmux.service.BasketFiller;
 import by.matmux.service.ServiceFactory;
 import by.matmux.view.Consumer;
 
@@ -14,8 +14,8 @@ public class Filler implements Command {
     @Override
     public String execute(final BasketList basketList, final Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getInstance();
-        BasketRandomFiller basketRandomFiller = serviceFactory.getBasketFiller();
+        BasketFiller basketFiller = serviceFactory.getBasketFiller();
 
-        return basketRandomFiller.basketRandomFiller(consumer.enterNum(), basketList.getBasket(consumer.enterNumBasket()));
+        return basketFiller.basketRandomFiller(consumer.enterNum(), basketList.getBasket(consumer.enterNumBasket()));
     }
 }

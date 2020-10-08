@@ -5,6 +5,10 @@ package by.matmux.bean;
 public enum Color {
     RED, GREEN, PINK, BLUE, YELLOW, WHITE, ORANGE, PURPLE, BROWN;
 
+    Color() {
+
+    }
+
     /** @return a random color */
     public Color getRandomColor() {
         Color[] arrColor = Color.values();

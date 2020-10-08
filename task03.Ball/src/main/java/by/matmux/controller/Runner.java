@@ -27,7 +27,7 @@ public class Runner {
                 choice = false;
             }
 
-            consumer.show(controller.execute(selectedCommand, basketList, consumer));
+            System.out.println(controller.execute(selectedCommand, basketList, consumer));
         }
     }
 }

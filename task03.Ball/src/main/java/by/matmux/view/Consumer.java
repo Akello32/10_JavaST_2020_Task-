@@ -8,7 +8,6 @@ import java.util.Scanner;
 
 public final class Consumer {
     /**
-     * accepts a number Basket
      * @return number to call the basket from basketList
      */
     public int enterNumBasket() {
@@ -19,7 +18,6 @@ public final class Consumer {
     }
 
     /**
-     * accepts a number
      * @return number
      */
     public int enterNum() {
@@ -30,7 +28,6 @@ public final class Consumer {
     }
 
     /**
-     * accepts a Color
      * @return colors
      */
     public Color enterColorBall() {
@@ -63,12 +60,6 @@ public final class Consumer {
     }
 
     /**
-     * show the response to the request
-     * @param response of the programme
-     */
-    public void show(String response) { System.out.println(response); }
-
-    /**
      * shows the user the name of the commands and what they do
      * @return request with the command name
      */
@@ -87,5 +78,4 @@ public final class Consumer {
         String request = sc.next();
         return request;
     }
-
 }

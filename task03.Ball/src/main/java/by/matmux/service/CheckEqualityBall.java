@@ -28,7 +28,6 @@ public class CheckEqualityBall {
                 }
             }
         }
-        //TODO return int
         return "You have a " + countOfEqualBalls + " equals balls \n";
     }
 }

@@ -12,7 +12,6 @@ public class Basket {
     public void addBallInToList(final Ball ball) {
         ballsList.add(ball);
     }
-
     public ArrayList<Ball> getBallsList() {
         return ballsList;
     }
@@ -33,5 +32,4 @@ public class Basket {
         }
         return b1.toString();
     }
-    // TODO hashCode
 }

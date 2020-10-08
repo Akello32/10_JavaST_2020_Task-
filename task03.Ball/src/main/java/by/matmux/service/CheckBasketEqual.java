@@ -12,7 +12,7 @@ public class CheckBasketEqual {
     public String checkBasketEqual(final BasketList basketList) {
         int countOfEqualityBasket = 0;
         int countOfEqualityBalls = 0;
-        
+
         if (basketList.getSizeList() == 1 || basketList.getSizeList() == 0) {
             return "Not found the same baskets \n";
         }
@@ -39,7 +39,6 @@ public class CheckBasketEqual {
                 countOfEqualityBasket++;
             }
         }
-
         return  "You have a " + countOfEqualityBasket + " equals baskets \n";
     }
 }
