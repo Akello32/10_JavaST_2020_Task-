@@ -9,6 +9,7 @@ public class DeletingWords {
      */
     public String delete(final String text, final int lengthWords) {
         if (text == null || "".equals(text)) { return ""; }
+        if (lengthWords == 0) { return text; }
         String[] tmpArr = text.trim().split("[\\p{Punct}\\d\\s]");
         StringBuilder result = new StringBuilder(text);
 
