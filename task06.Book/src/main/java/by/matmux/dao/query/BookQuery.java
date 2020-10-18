@@ -6,5 +6,5 @@ import java.util.ArrayList;
 import java.util.Set;
 
 public interface BookQuery {
-    public ArrayList<Book> query(Set<Book> storage);
+    ArrayList<Book> query(Set<Book> storage);
 }

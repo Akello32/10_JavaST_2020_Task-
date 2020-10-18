@@ -4,6 +4,7 @@ import by.matmux.beans.Book;
 import by.matmux.dao.query.BookQuery;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 public class SearchAuthorsQuery implements BookQuery {
@@ -13,7 +14,7 @@ public class SearchAuthorsQuery implements BookQuery {
     /** Constructor which assigns list of authors to search for
      * @param list - the list of authors
      */
-    public SearchAuthorsQuery(final ArrayList<String> list) {
+    public SearchAuthorsQuery(final List<String> list) {
         this.listAuthors.addAll(list);
     }
 
@@ -26,7 +27,7 @@ public class SearchAuthorsQuery implements BookQuery {
     public ArrayList<Book> query(Set<Book> storage) {
         ArrayList<Book> result = new ArrayList<>();
         for (Book b : storage) {
-            if (listAuthors.contains(b.getAuthors())) {
+            if (listAuthors.equals(b.getAuthors())) {
                 result.add(b);
             }
         }
