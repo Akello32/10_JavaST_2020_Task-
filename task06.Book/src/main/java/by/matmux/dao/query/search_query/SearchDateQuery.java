@@ -5,17 +5,18 @@ import by.matmux.dao.query.BookQuery;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.Set;
 
 public class SearchDateQuery implements BookQuery {
     /** Stores the passed year of publishing to be searched for */
-    private Calendar yearOfPublishing;
+    private Date yearOfPublishing;
 
     /**
      *  Constructor which assigns year of publishing to search for
      * @param date - the year of publishing
      */
-    public SearchDateQuery(final Calendar date) {
+    public SearchDateQuery(final Date date) {
         this.yearOfPublishing = date;
     }
 

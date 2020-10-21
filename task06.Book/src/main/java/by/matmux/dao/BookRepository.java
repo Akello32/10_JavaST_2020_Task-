@@ -24,6 +24,13 @@ public final class BookRepository implements Repository {
         return instance;
     }
 
+    /**
+     * checks whether the collection is empty
+     * @return checks result
+     */
+    public boolean isEmpty() {
+        return bookSet.isEmpty();
+    }
 
     /**
      * Adds book in the storage

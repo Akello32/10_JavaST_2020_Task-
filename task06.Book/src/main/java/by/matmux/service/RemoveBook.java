@@ -8,13 +8,14 @@ public class RemoveBook {
      * Checks parameters and remove book from the repository
      * @param book book to remove
      */
-    public void remove(final Book book) {
+    public String remove(final Book book) {
         if (book != null) {
             BookRepository repository = BookRepository.getInstance();
             if (!repository.contains(book)) {
                 repository.addBook(book);
             }
         }
+        return "book remove";
     }
 }
 

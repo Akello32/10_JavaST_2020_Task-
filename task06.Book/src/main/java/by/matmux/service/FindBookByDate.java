@@ -15,7 +15,7 @@ public class FindBookByDate {
      * @param date - params to finds
      * @return ArrayList with desired books
      */
-    public List<Book> find(final Calendar date) {
+    public List<Book> find(final Date date) {
         if (date == null) { return Collections.emptyList(); }
         if (date.after(new Date())) { return Collections.emptyList(); }
 
