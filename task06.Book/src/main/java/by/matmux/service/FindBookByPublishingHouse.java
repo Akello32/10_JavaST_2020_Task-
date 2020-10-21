@@ -3,7 +3,6 @@ package by.matmux.service;
 import by.matmux.beans.Book;
 import by.matmux.dao.BookRepository;
 import by.matmux.dao.query.search_query.SearchPublishingQuery;
-import by.matmux.dao.query.search_query.SearchTitleQuery;
 
 import java.util.Collections;
 import java.util.List;

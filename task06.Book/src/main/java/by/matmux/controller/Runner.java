@@ -1,5 +1,6 @@
 package by.matmux.controller;
 
+import by.matmux.dao.BookRepository;
 import by.matmux.view.Consumer;
 
 public class Runner {
@@ -7,11 +8,15 @@ public class Runner {
     public static void main(String[] args) {
         Controller controller = new Controller();
         Consumer consumer = new Consumer();
-        String request = new String();
+        String request;
         boolean choice = true;
         while (choice) {
             request = consumer.setRequest();
-
+            consumer.show(controller.execute(request, consumer).toString());
+/*            consumer.show(BookRepository.getInstance().toString());*/
+            if (request.equals("EXIT")) {
+                choice = false;
+            }
         }
     }
 }

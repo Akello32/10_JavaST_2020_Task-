@@ -18,7 +18,7 @@ public class SetBooksFromFile {
         BookRepository repository = BookRepository.getInstance();
         ArrayList<String> authors = new ArrayList<>();
         ArrayList<String> paramsList = new ArrayList<>();
-        try (FileInputStream inputStream = new FileInputStream("files/inputFiles.txt")){
+        try (FileInputStream inputStream = new FileInputStream("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/task06.Book/src/files/inputFiles.txt")){
             Scanner sc = new Scanner(inputStream);
             while (sc.hasNextLine()) {
                 String[] str = sc.nextLine().trim().split(", ");
@@ -29,8 +29,8 @@ public class SetBooksFromFile {
                 paramsList.clear();
             }
         } catch (IOException ex) {
-
+            return "Error";
         }
-        return "Books set";
+        return "Book set";
     }
 }

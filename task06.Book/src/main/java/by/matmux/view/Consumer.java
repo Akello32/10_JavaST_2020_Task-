@@ -1,9 +1,6 @@
 package by.matmux.view;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -27,8 +24,12 @@ public class Consumer {
         System.out.println("Enter the authors of the book");
         Scanner sc = new Scanner(System.in);
         ArrayList<String> authors = new ArrayList<>();
-        while (sc.next() != "") {
-            authors.add(sc.nextLine());
+        while (true) {
+            String s = sc.nextLine();
+            if (s == null) {
+                break;
+            }
+            authors.add(s);
         }
         return authors;
     }
@@ -50,7 +51,7 @@ public class Consumer {
     public Date enterDate() {
         Date date;
         Scanner sc = new Scanner(System.in);
-        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyy GG", Locale.ENGLISH);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
             date = format.parse(sc.nextLine());
             return date;
@@ -83,13 +84,14 @@ public class Consumer {
                 "Enter SORT_BOOK_BY_AUTHORS to sort the books by authors\n" +
                 "Enter SORT_BOOK_BY_NUMBER_PAGES to sort the books by number of pages\n" +
                 "Enter SORT_BOOK_BY_PUBLISHING_HOUSE to sort the books by publishing house\n" +
-                "Enter SORT_BOOK_BY_DATE to sort the books by date\n");
+                "Enter SORT_BOOK_BY_DATE to sort the books by date\n" +
+                "Enter SET_BOOK_FROM_FILES to set books from file");
         return sc.nextLine();
     }
 
     public void show(String response) {
-        try (FileOutputStream outputStream = new FileOutputStream("files/inputFiles.txt")) {
-
+            try (FileWriter outputStream = new FileWriter("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/task06.Book/src/files/output.txt")) {
+            outputStream.write(response);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {

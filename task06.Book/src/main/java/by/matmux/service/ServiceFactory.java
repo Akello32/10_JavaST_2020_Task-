@@ -1,12 +1,12 @@
 package by.matmux.service;
 
-import java.util.List;
-
 public final class ServiceFactory {
     private static final ServiceFactory serviceFactory = new ServiceFactory();
 
     private final AddBook addBook = new AddBook();
     private final RemoveBook removeBook = new RemoveBook();
+
+    private final SetBooksFromFile setBooksFromFile = new SetBooksFromFile();
 
     private final FindBookByDate findBookByDate = new FindBookByDate();
     private final FindBookByAuthors findBookByAuthors = new FindBookByAuthors();
@@ -51,6 +51,8 @@ public final class ServiceFactory {
     public FindBookByTitle getFindBookByTitle() {
         return findBookByTitle;
     }
+
+    public SetBooksFromFile getSetBooksFromFile() { return setBooksFromFile; }
 
     public SortBookByAuthors getSortBookByAuthors() {
         return sortBookByAuthors;

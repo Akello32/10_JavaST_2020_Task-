@@ -11,14 +11,15 @@ public class Book {
     private String publishingHouse;
     private Date yearOfPublishing;
 
-    public Book(ArrayList<String> authors, ArrayList<String> paramsList) {
+    public Book(final ArrayList<String> authors, final ArrayList<String> paramsList) {
         this.title = paramsList.get(0);
-        this.authors = authors;
+        this.authors = new ArrayList<>(authors);
         this.numberOfPage = Integer.parseInt(paramsList.get(2));
         this.publishingHouse = paramsList.get(3);
-        SimpleDateFormat format = new SimpleDateFormat("dd MMM yyy GG", Locale.ENGLISH);
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
-            this.yearOfPublishing = format.parse(paramsList.get(4));
+            Date date = format.parse(paramsList.get(4));
+            this.yearOfPublishing = date;
         } catch (ParseException e) {
             this.yearOfPublishing = new Date(2020, Calendar.SEPTEMBER, 21);
         }
@@ -75,12 +76,13 @@ public class Book {
 
     @Override
     public String toString() {
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         return "Book{" +
-                "title='" + title + '\'' +
-                ",\n authors=" + authors +
-                ",\n numberOfPage=" + numberOfPage +
-                ",\n publishingHouse='" + publishingHouse + '\'' +
-                ",\n yearOfPublishing=" + yearOfPublishing.getTime() +
+                "title = '" + title + '\'' +
+                ",\n authors = " + authors.toString() +
+                ",\n numberOfPage = " + numberOfPage +
+                ",\n publishingHouse = '" + publishingHouse + '\'' +
+                ",\n yearOfPublishing = " + format.format(yearOfPublishing) +
                 "} \n";
     }
 }

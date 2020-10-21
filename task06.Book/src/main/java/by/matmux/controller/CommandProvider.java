@@ -21,11 +21,12 @@ public final class CommandProvider {
         repository.put(CommandName.FIND_BOOK_BY_NUMBER_PAGES, new SearchPagesCommand());
         repository.put(CommandName.FIND_BOOK_BY_PUBLISHING_HOUSE, new SearchHouseCommand());
         repository.put(CommandName.FIND_BOOK_BY_DATE, new SearchDateCommand());
+        repository.put(CommandName.SET_BOOK_FROM_FILES, new SetBooksCommand());
     }
 
     Command getCommand(String name){
         if (name == null || name.equals("")) { return null; }
-        CommandName commandName =null;
+        CommandName commandName = null;
         Command command = null;
         try{
             commandName = CommandName.valueOf(name.toUpperCase());
