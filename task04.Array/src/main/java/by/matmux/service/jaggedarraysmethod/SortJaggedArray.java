@@ -2,6 +2,9 @@ package by.matmux.service.jaggedarraysmethod;
 
 import by.matmux.bean.JaggedArray;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 public class SortJaggedArray {
     /**
      * creating array on sum of matrix's row
@@ -65,7 +68,6 @@ public class SortJaggedArray {
      * @return message of result
      */
     private String sortJagged(JaggedArray array, int[] arrTmp, boolean decrease) {
-        if (decrease) {
             for (int i = array.length() - 1; i >= 1; i--) {
                 for (int j  = 0; j < i; j++) {
                     if (arrTmp[j] > arrTmp[j + 1]) {
@@ -74,16 +76,9 @@ public class SortJaggedArray {
                     }
                 }
             }
-        } else {
-            for (int i = array.length() - 1; i >= 1; i--) {
-                for (int j  = 0; j < i; j++) {
-                    if (arrTmp[j] < arrTmp[j + 1]) {
-                        swap(arrTmp, j, j+1 );
-                        swapArr(array, j, j + 1);
-                    }
-                }
+            if (decrease) {
+                Collections.reverse(Arrays.asList(array.getJagArr()));
             }
-        }
         return "Array is sorted";
     }
 

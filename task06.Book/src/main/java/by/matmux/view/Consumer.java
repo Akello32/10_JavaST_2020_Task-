@@ -71,6 +71,10 @@ public class Consumer {
         return sc.nextLine();
     }
 
+    /**
+     * Shows menu and gets
+     * @return
+     */
     public String setRequest() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter ADD_BOOK to add book in the storage\n" +
