@@ -1,0 +1,21 @@
+[Book{title = 'AПикник на обочине',
+ authors = [Стругацкие],
+ numberOfPage = 305,
+ publishingHouse = 'Челябинск',
+ yearOfPublishing = 2001-08-07} 
+, Book{title = 'Lord of the Rings',
+ authors = [Tolkien],
+ numberOfPage = 607,
+ publishingHouse = 'London',
+ yearOfPublishing = 2019-10-01} 
+, Book{title = 'BLord of the Rings: two tower',
+ authors = [Matvei, Tolkien],
+ numberOfPage = 704,
+ publishingHouse = 'New-York',
+ yearOfPublishing = 1006-03-01} 
+, Book{title = 'Lord of the Rings: return the King',
+ authors = [J.K.Rowling, Tolkien, Matvei],
+ numberOfPage = 809,
+ publishingHouse = 'Minsk',
+ yearOfPublishing = 2020-11-07} 
+]
