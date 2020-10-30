@@ -2,7 +2,7 @@ package by.matmux.service;
 
 import by.matmux.beans.Edition;
 import by.matmux.dao.EditionRepository;
-import by.matmux.dao.query.search_query.SearchDateQuery;
+import by.matmux.service.query.search_query.SearchDateQuery;
 
 import java.util.Collections;
 import java.util.Date;

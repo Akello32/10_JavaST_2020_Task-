@@ -10,7 +10,11 @@ public final class CommandProvider {
 
     CommandProvider() {
         repository.put(CommandName.ADD_BOOK, new AddBookCommand());
+        repository.put(CommandName.ADD_JOURNAL, new AddJournalCommand());
+        repository.put(CommandName.ADD_AlBUM, new AddAlbumCommand());
         repository.put(CommandName.REMOVE_BOOK, new RemoveBookCommand());
+        repository.put(CommandName.REMOVE_JOURNAL, new RemoveJournalCommand());
+        repository.put(CommandName.REMOVE_ALBUM, new RemoveAlbumCommand());
         repository.put(CommandName.SORT_BOOK_BY_TITLE, new SortTitleCommand());
         repository.put(CommandName.SORT_BOOK_BY_AUTHORS, new SortAuthorsCommand());
         repository.put(CommandName.SORT_BOOK_BY_DATE, new SortDateCommand());

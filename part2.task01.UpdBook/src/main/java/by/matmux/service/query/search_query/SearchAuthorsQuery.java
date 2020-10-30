@@ -1,7 +1,7 @@
-package by.matmux.dao.query.search_query;
+package by.matmux.service.query.search_query;
 
 import by.matmux.beans.Edition;
-import by.matmux.dao.query.EditionQuery;
+import by.matmux.service.query.EditionQuery;
 
 import java.util.ArrayList;
 import java.util.List;

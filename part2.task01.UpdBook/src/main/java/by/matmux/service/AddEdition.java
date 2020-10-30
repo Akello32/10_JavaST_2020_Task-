@@ -14,7 +14,7 @@ public class AddEdition {
         if (edition != null) {
             EditionRepository repository = EditionRepository.getInstance();
             if (!repository.contains(edition)) {
-                edition.setId(new Random().nextInt(2147483647));
+                edition.setId();
                 repository.addEdition(edition);
             }
         }

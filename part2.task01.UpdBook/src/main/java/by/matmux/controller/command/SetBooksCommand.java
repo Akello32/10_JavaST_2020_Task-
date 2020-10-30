@@ -7,6 +7,6 @@ public class SetBooksCommand implements Command{
     @Override
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
-        return serviceFactory.getSetBooksFromFile().setBooks();
+        return serviceFactory.getSetEditionsFromFile().setBooks();
     }
 }

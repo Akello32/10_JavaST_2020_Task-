@@ -14,14 +14,15 @@ public abstract class Edition {
     private String publishingHouse;
     private Date yearOfPublishing;
     private String type;
+    private static int idCount = 0;
     private int id;
 
-    public Edition(final ArrayList<String> authors, final ArrayList<String> paramsList, final String type) {
-        this.title = paramsList.get(0);
+    public Edition(final ArrayList<String> authors, final ArrayList<String> paramsList) {
+        this.type = paramsList.get(0);
+        this.title = paramsList.get(1);
         this.authors = new ArrayList<>(authors);
         this.numberOfPage = Integer.parseInt(paramsList.get(2));
         this.publishingHouse = paramsList.get(3);
-        this.type = type;
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         try {
             Date date = format.parse(paramsList.get(4));
@@ -31,12 +32,14 @@ public abstract class Edition {
         }
     }
 
-    public Edition(String title, ArrayList<String> authors, int numberOfPage, String publishingHouse, Date yearOfPublishing) {
+    public Edition(final String title, final ArrayList<String> authors, final int numberOfPage,
+                   final String publishingHouse, final Date yearOfPublishing, final String type) {
         this.title = title;
         this.authors = authors;
         this.numberOfPage = numberOfPage;
         this.publishingHouse = publishingHouse;
         this.yearOfPublishing = yearOfPublishing;
+        this.type = type;
     }
 
     public String getTitle() {
@@ -51,7 +54,7 @@ public abstract class Edition {
 
     public int getId() { return id; }
 
-    public void setId(int id) { this.id = id; }
+    public void setId() { id = ++idCount; }
 
     public int getNumberOfPage() {
         return numberOfPage;
@@ -68,12 +71,13 @@ public abstract class Edition {
     @Override
     public String toString() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
-        return "Book{" +
+        return "\n" + type + " {" +
                 "title = '" + title + '\'' +
                 ",\n authors = " + authors.toString() +
                 ",\n numberOfPage = " + numberOfPage +
                 ",\n publishingHouse = '" + publishingHouse + '\'' +
                 ",\n yearOfPublishing = " + format.format(yearOfPublishing) +
+                ",\n id = " + id +
                 "} \n";
     }
 }

@@ -3,7 +3,7 @@ package by.matmux.service;
 
 import by.matmux.beans.Edition;
 import by.matmux.dao.EditionRepository;
-import by.matmux.dao.query.search_query.SearchAuthorsQuery;
+import by.matmux.service.query.search_query.SearchAuthorsQuery;
 
 import java.util.ArrayList;
 import java.util.Collections;

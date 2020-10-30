@@ -7,6 +7,6 @@ public class SearchPagesCommand implements Command{
     @Override
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
-        return serviceFactory.getFindBookByPagesNumber().find(consumer.enterNumberPages());
+        return serviceFactory.getFindEditionByPagesNumber().find(consumer.enterNumberPages());
     }
 }

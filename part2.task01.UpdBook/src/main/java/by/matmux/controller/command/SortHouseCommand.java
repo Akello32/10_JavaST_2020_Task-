@@ -7,6 +7,6 @@ public class SortHouseCommand implements Command{
     @Override
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
-        return serviceFactory.getBookByPublishingHouse().sort();
+        return serviceFactory.getEditionsByPublishingHouse().sort();
     }
 }

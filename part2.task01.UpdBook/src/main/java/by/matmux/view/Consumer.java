@@ -16,6 +16,10 @@ public class Consumer {
         return sc.nextLine();
     }
 
+/*    public String enterType() {
+
+    }*/
+
     /**
      * accepts the authors from the user
      * @return return ArrayList with authors
@@ -78,7 +82,11 @@ public class Consumer {
     public String setRequest() {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter ADD_BOOK to add book in the storage\n" +
+                "Enter ADD_JOURNAL to add journal in the storage\n" +
+                "Enter ADD_ALBUM to add album in the storage\n" +
+                "Enter REMOVE_JOURNAL to remove journal in the storage\n" +
                 "Enter REMOVE_BOOK to remove book in the storage\n" +
+                "Enter REMOVE_ALBUM to remove album in the storage\n" +
                 "Enter FIND_BOOK_BY_TITLE to find book by title in the storage\n" +
                 "Enter FIND_BOOK_BY_AUTHORS to find book by authors in the storage\n" +
                 "Enter FIND_BOOK_BY_NUMBER_PAGES to find book by number of pages in the storage\n" +

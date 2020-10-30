@@ -7,6 +7,6 @@ public class SortPagesCommand implements Command{
     @Override
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
-        return serviceFactory.getSortBookByPagesNumber().sort();
+        return serviceFactory.getSortEditionsByPagesNumber().sort();
     }
 }

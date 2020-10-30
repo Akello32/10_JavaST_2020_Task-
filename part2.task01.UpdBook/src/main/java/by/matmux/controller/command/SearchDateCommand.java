@@ -7,6 +7,6 @@ public class SearchDateCommand implements Command{
     @Override
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
-        return serviceFactory.getFindBookByDate().find(consumer.enterDate());
+        return serviceFactory.getFindEditionByDate().find(consumer.enterDate());
     }
 }

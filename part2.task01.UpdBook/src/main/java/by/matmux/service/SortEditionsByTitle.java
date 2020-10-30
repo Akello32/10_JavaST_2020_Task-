@@ -2,7 +2,7 @@ package by.matmux.service;
 
 import by.matmux.beans.Edition;
 import by.matmux.dao.EditionRepository;
-import by.matmux.dao.query.sort_query.SortTitleQuery;
+import by.matmux.service.query.sort_query.SortTitleQuery;
 
 import java.util.Collections;
 import java.util.List;

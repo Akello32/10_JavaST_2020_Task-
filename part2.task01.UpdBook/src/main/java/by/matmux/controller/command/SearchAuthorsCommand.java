@@ -7,6 +7,6 @@ public class SearchAuthorsCommand implements Command{
     @Override
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
-        return serviceFactory.getFindBookByAuthors().find(consumer.enterAuthors());
+        return serviceFactory.getFindEditionByAuthors().find(consumer.enterAuthors());
     }
 }

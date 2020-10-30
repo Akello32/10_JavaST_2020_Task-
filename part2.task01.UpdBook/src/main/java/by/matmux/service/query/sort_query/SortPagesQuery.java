@@ -1,8 +1,7 @@
-package by.matmux.dao.query.sort_query;
+package by.matmux.service.query.sort_query;
 
-import by.matmux.beans.Book;
 import by.matmux.beans.Edition;
-import by.matmux.dao.query.EditionQuery;
+import by.matmux.service.query.EditionQuery;
 
 import java.util.ArrayList;
 import java.util.Comparator;

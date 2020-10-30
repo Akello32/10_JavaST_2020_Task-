@@ -7,6 +7,6 @@ public class SearchTitleCommand implements Command{
     @Override
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
-        return serviceFactory.getFindBookByTitle().find(consumer.enterTitle());
+        return serviceFactory.getFindEditionByTitle().find(consumer.enterTitle());
     }
 }

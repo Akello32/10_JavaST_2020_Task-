@@ -1,6 +1,5 @@
-package by.matmux.dao.query;
+package by.matmux.service.query;
 
-import by.matmux.beans.Book;
 import by.matmux.beans.Edition;
 
 import java.util.ArrayList;
