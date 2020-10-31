@@ -10,8 +10,7 @@ public class AddJournalCommand implements Command{
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
         Edition edition = new Journal(consumer.enterTitle(), consumer.enterAuthors(), consumer.enterNumberPages(),
-                consumer.enterPublishingHouse(), consumer.enterDate(), //TODO create a enter type
-                consumer.enterTitle());
+                consumer.enterPublishingHouse(), consumer.enterDate(), "Journal");
         return serviceFactory.getAddEdition().add(edition);
     }
 }

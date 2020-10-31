@@ -1,7 +1,7 @@
 package by.matmux.dao;
 
 import by.matmux.beans.Edition;
-import by.matmux.service.query.EditionQuery;
+import by.matmux.dao.query.EditionQuery;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -51,9 +51,9 @@ public final class EditionRepository implements Repository {
     }
 
     /**
-     * Implements a request to sort or search for a book by tag
+     * Implements a request to sort or search for a edition by tag
      * @param query - a query with the passed tag
-     * @return ArrayList with a desired books
+     * @return ArrayList with a desired editions
      */
     @Override
     public ArrayList<Edition> query(final EditionQuery query) {
@@ -61,8 +61,8 @@ public final class EditionRepository implements Repository {
     }
 
     /**
-     * Checks whether the book is in storage
-     * @param edition - book to check
+     * Checks whether the edition is in storage
+     * @param edition - edition to check
      * @return check result
      */
     @Override

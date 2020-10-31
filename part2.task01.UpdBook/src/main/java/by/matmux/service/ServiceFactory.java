@@ -1,5 +1,8 @@
 package by.matmux.service;
 
+import by.matmux.service.find_edition.*;
+import by.matmux.service.sort_edition.*;
+
 public final class ServiceFactory {
     private static final ServiceFactory serviceFactory = new ServiceFactory();
 
@@ -13,12 +16,19 @@ public final class ServiceFactory {
     private final FindEditionByPagesNumber findEditionByPagesNumber = new FindEditionByPagesNumber();
     private final FindEditionByPublishingHouse publishingHouse = new FindEditionByPublishingHouse();
     private final FindEditionByTitle findEditionByTitle = new FindEditionByTitle();
+    private final FindEditionBeforeDate findEditionBeforeDate = new FindEditionBeforeDate();
+    private final FindsEditionByID findEditionById = new FindsEditionByID();
+    private final FindEditionByIdInterval findEditionByIdInterval = new FindEditionByIdInterval();
+    private final FindEditionByType findEditionByType = new FindEditionByType();
 
     private final SortEditionsByAuthors sortEditionsByAuthors = new SortEditionsByAuthors();
     private final SortEditionsByPagesNumber sortEditionsByPagesNumber = new SortEditionsByPagesNumber();
     private final SortEditionsByTitle sortEditionsByTitle = new SortEditionsByTitle();
     private final SortEditionsByPublishingHouse editionsByPublishingHouse = new SortEditionsByPublishingHouse();
     private final SortEditionsByYearOfPublishing yearOfPublishing = new SortEditionsByYearOfPublishing();
+    private final SortAlbumByTitle sortAlbumByTitle = new SortAlbumByTitle();
+    private final SortBookByPages sortBookByPages = new SortBookByPages();
+    private final SortJournalByAuthors sortJournalByAuthors = new SortJournalByAuthors();
 
     public static ServiceFactory getServiceFactory() {
         return serviceFactory;
@@ -54,6 +64,34 @@ public final class ServiceFactory {
 
     public FindEditionByTitle getFindEditionByTitle() {
         return findEditionByTitle;
+    }
+
+    public FindEditionBeforeDate getFindEditionBeforeDate() {
+        return findEditionBeforeDate;
+    }
+
+    public FindsEditionByID getFindEditionById() {
+        return findEditionById;
+    }
+
+    public FindEditionByIdInterval getFindEditionByIdInterval() {
+        return findEditionByIdInterval;
+    }
+
+    public FindEditionByType getFindEditionByType() {
+        return findEditionByType;
+    }
+
+    public SortAlbumByTitle getSortAlbumByTitle() {
+        return sortAlbumByTitle;
+    }
+
+    public SortBookByPages getSortBookByPages() {
+        return sortBookByPages;
+    }
+
+    public SortJournalByAuthors getSortJournalByAuthors() {
+        return sortJournalByAuthors;
     }
 
     public SortEditionsByAuthors getSortEditionsByAuthors() {

@@ -69,6 +69,24 @@ public abstract class Edition {
     }
 
     @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Edition edition = (Edition) o;
+        return getNumberOfPage() == edition.getNumberOfPage() &&
+                getTitle().equals(edition.getTitle()) &&
+                getAuthors().equals(edition.getAuthors()) &&
+                getPublishingHouse().equals(edition.getPublishingHouse()) &&
+                getYearOfPublishing().equals(edition.getYearOfPublishing()) &&
+                getType().equals(edition.getType());
+    }
+
+    @Override
     public String toString() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
         return "\n" + type + " {" +

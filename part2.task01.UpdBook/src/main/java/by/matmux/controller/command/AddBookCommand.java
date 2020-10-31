@@ -10,8 +10,7 @@ public class AddBookCommand implements Command{
     public Object execute(Consumer consumer) {
         ServiceFactory serviceFactory = ServiceFactory.getServiceFactory();
         Edition edition = new Book(consumer.enterTitle(), consumer.enterAuthors(), consumer.enterNumberPages(),
-                consumer.enterPublishingHouse(), consumer.enterDate(), //TODO create a enter type
-                 consumer.enterTitle());
+                consumer.enterPublishingHouse(), consumer.enterDate(), "Book");
         return serviceFactory.getAddEdition().add(edition);
     }
 }

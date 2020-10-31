@@ -3,8 +3,6 @@ package by.matmux.service;
 import by.matmux.beans.Edition;
 import by.matmux.dao.EditionRepository;
 
-import java.util.Random;
-
 public class AddEdition {
     /**
      * Checks parameters and adds edition in the repository

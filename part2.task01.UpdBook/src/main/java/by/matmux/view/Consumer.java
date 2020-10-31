@@ -15,26 +15,36 @@ public class Consumer {
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
+    /**
+     * accepts the type from the user
+     * @return the type
+     */
+    public String enterType() {
+        System.out.println("Enter the type of the book");
+        Scanner sc = new Scanner(System.in);
+        return sc.nextLine();
+    }
 
-/*    public String enterType() {
-
-    }*/
+    /**
+     * accepts the id from the user
+     * @return the id
+     */
+    public int enterId() {
+        System.out.println("Enter the id of the book");
+        Scanner sc = new Scanner(System.in);
+        return sc.nextInt();
+    }
 
     /**
      * accepts the authors from the user
      * @return return ArrayList with authors
      */
     public ArrayList<String> enterAuthors() {
-        System.out.println("Enter the authors of the book");
+        System.out.println("Enter the authors of the book separated by commas");
         Scanner sc = new Scanner(System.in);
         ArrayList<String> authors = new ArrayList<>();
-        while (true) {
             String s = sc.nextLine();
-            if (s == null) {
-                break;
-            }
-            authors.add(s);
-        }
+            authors.addAll(Arrays.asList(s.trim().split(", ")));
         return authors;
     }
 
@@ -53,6 +63,7 @@ public class Consumer {
      * @return the date of publishing
      */
     public Date enterDate() {
+        System.out.println("Enter a date");
         Date date;
         Scanner sc = new Scanner(System.in);
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd", Locale.ENGLISH);
@@ -81,26 +92,39 @@ public class Consumer {
      */
     public String setRequest() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter ADD_BOOK to add book in the storage\n" +
+        System.out.println("Enter SET_EDITION_FROM_FILES to set books from file\n" +
+                "Enter ADD_BOOK to add book in the storage\n" +
                 "Enter ADD_JOURNAL to add journal in the storage\n" +
                 "Enter ADD_ALBUM to add album in the storage\n" +
                 "Enter REMOVE_JOURNAL to remove journal in the storage\n" +
                 "Enter REMOVE_BOOK to remove book in the storage\n" +
-                "Enter REMOVE_ALBUM to remove album in the storage\n" +
-                "Enter FIND_BOOK_BY_TITLE to find book by title in the storage\n" +
-                "Enter FIND_BOOK_BY_AUTHORS to find book by authors in the storage\n" +
-                "Enter FIND_BOOK_BY_NUMBER_PAGES to find book by number of pages in the storage\n" +
-                "Enter FIND_BOOK_BY_DATE to find book by date of publishing int the storage\n" +
-                "Enter FIND_BOOK_BY_PUBLISHING_HOUSE to find book by publishing house in the storage\n" +
-                "Enter SORT_BOOK_BY_TITLE to sort the books by title\n" +
-                "Enter SORT_BOOK_BY_AUTHORS to sort the books by authors\n" +
+                "Enter REMOVE_ALBUM to remove album in the storage\n \n" +
+
+                "Enter FIND_EDITION_BY_TITLE to find editions by title in the storage\n" +
+                "Enter FIND_EDITION_BY_AUTHORS to find editions by authors in the storage\n" +
+                "Enter FIND_EDITION_BY_NUMBER_PAGES to find editions by number of pages in the storage\n" +
+                "Enter FIND_EDITION_BY_DATE to find editions by date of publishing int the storage\n" +
+                "Enter FIND_EDITION_BY_PUBLISHING_HOUSE to find editions by publishing house in the storage\n" +
+                "Enter FIND_EDITION_BEFORE_DATE to find editions by released before the transmitted date in the storage\n" +
+                "Enter FIND_EDITION_BY_ID to find edition by id int the storage\n" +
+                "Enter FIND_EDITION_INTERVAL_ID to find editions in the desired id interval\n" +
+                "Enter FIND_EDITION_BY_TYPE to find editions by type in the storage\n \n" +
+
+                "Enter SORT_EDITION_BY_TITLE to sort the edition by title\n" +
+                "Enter SORT_EDITION_BY_AUTHORS to sort the edition by authors\n" +
+                "Enter SORT_EDITION_BY_NUMBER_PAGES to sort the edition by number of pages\n" +
+                "Enter SORT_EDITION_BY_PUBLISHING_HOUSE to sort the edition by publishing house\n" +
+                "Enter SORT_EDITION_BY_DATE to sort the edition by date\n" +
+                "Enter SORT_ALBUM_BY_TITLE to sort the albums by title\n" +
                 "Enter SORT_BOOK_BY_NUMBER_PAGES to sort the books by number of pages\n" +
-                "Enter SORT_BOOK_BY_PUBLISHING_HOUSE to sort the books by publishing house\n" +
-                "Enter SORT_BOOK_BY_DATE to sort the books by date\n" +
-                "Enter SET_BOOK_FROM_FILES to set books from file");
+                "Enter SORT_JOURNAL_BY_AUTHORS to sort the journals by authors");
         return sc.nextLine();
     }
 
+    /**
+     * outputs the response in the file
+     * @param response - stores the response to the request
+     */
     public void show(String response) {
             try (FileWriter outputStream = new FileWriter("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part2.task01.UpdBook/src/files/output.txt")) {
             outputStream.write(response);
