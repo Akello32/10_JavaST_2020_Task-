@@ -1,6 +1,5 @@
 package by.matmux.service;
 
-import by.matmux.beans.NamesEntity;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
@@ -27,44 +26,27 @@ public class SetEditionsFromFile {
                     Pattern pattern = Pattern.compile("[^=]*$");
                     Matcher matcher = pattern.matcher(s);
                     String temp;
-                    if (s.contains("type")) {
-                        if (matcher.find()) {
+                    if (s.contains("type") && matcher.find()) {
                             temp = matcher.group().trim();
-                            try {
-                                NamesEntity nm = NamesEntity.valueOf(temp.toUpperCase());
-                                paramsList.set(0, temp);
-                            } catch (IllegalArgumentException e) {
-                                paramsList.add(0,"Book");
-                            }
-                        }
-                    } else if (s.contains("title")) {
-                        if (matcher.find()) {
+                            paramsList.set(0, temp);
+                    } else if (s.contains("title") && matcher.find()) {
                             temp = matcher.group().trim();
                             paramsList.set(1, temp);
-                        }
-                    } else if (s.contains("numbers of page")) {
-                        if (matcher.find()) {
+                    } else if (s.contains("numbers of page") && matcher.find()) {
                             temp = matcher.group().trim();
-/*                            if (temp.matches("\\w")) {*/
+                            if (temp.matches("\\d")) {
                                 paramsList.set(2, temp);
-/*                            } else { paramsList.set(2, "111"); }*/
-                        }
-                    } else if (s.contains("publishing house")) {
-                        if (matcher.find()) {
+                            } else { paramsList.set(2, "111"); }
+                    } else if (s.contains("publishing house") && matcher.find()) {
                             temp = matcher.group().trim();
                             paramsList.set(3, temp);
-                        }
-                    } else if (s.contains("year of publishing")) {
-                        if (matcher.find()) {
+                    } else if (s.contains("year of publishing") && matcher.find()) {
                             temp = matcher.group().trim();
                             paramsList.set(4, temp);
-                        }
-                    } else if (s.contains("authors")) {
-                        if (matcher.find()) {
+                    } else if (s.contains("authors") && matcher.find()) {
                             temp = matcher.group().trim();
                             String[] authorsArr = temp.trim().split(", ");
                             authors.addAll(Arrays.asList(authorsArr));
-                        }
                     }
                 }
                 serviceFactory.getAddEdition().add(GetObjectByType.get(authors, paramsList));
@@ -74,8 +56,9 @@ public class SetEditionsFromFile {
             }
         } catch (IOException ex) {
             return "Error";
+        } catch (IllegalArgumentException e) {
+            paramsList.add(0,"Book");
         }
-        //TODO Logger
         return "Book set";
     }
 }

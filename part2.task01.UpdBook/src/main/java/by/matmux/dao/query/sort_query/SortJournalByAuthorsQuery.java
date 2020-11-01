@@ -1,7 +1,6 @@
 package by.matmux.dao.query.sort_query;
 
 import by.matmux.beans.Edition;
-import by.matmux.beans.Journal;
 import by.matmux.dao.query.EditionQuery;
 import by.matmux.dao.query.search_query.SearchAllEditionByType;
 

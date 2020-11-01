@@ -76,29 +76,34 @@ public class Consumer {
         return date = new Date(2020, Calendar.SEPTEMBER, 21);
     }
 
-    /**
-     * accepts the publishing house from the user
-     * @return the publishing house
-     */
-    public String enterPublishingHouse() {
-        System.out.println("Enter a publishing house of the book");
+    public String enterParamsForUpd() {
+        System.out.println("Enter the parameter to update in this form (title = Fight club)");
         Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
 
     /**
-     * Shows menu and gets
-     * @return
+     * accepts the publishing house from the user
+     * @return the publishing house
      */
-    public String setRequest() {
+    public String enterPublishingHouse() {
+        System.out.println("Enter a publishing house of the edition");
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter SET_EDITION_FROM_FILES to set books from file\n" +
+        return sc.nextLine();
+    }
+
+    /**
+     * Shows menu
+     */
+    public void showMenu() {
+        System.out.println("Enter SET_EDITION_FROM_FILES to set editions from file\n" +
                 "Enter ADD_BOOK to add book in the storage\n" +
                 "Enter ADD_JOURNAL to add journal in the storage\n" +
                 "Enter ADD_ALBUM to add album in the storage\n" +
                 "Enter REMOVE_JOURNAL to remove journal in the storage\n" +
                 "Enter REMOVE_BOOK to remove book in the storage\n" +
-                "Enter REMOVE_ALBUM to remove album in the storage\n \n" +
+                "Enter REMOVE_ALBUM to remove album in the storage\n " +
+                "Enter UPDATE_EDITION to update edition in the storage \n \n" +
 
                 "Enter FIND_EDITION_BY_TITLE to find editions by title in the storage\n" +
                 "Enter FIND_EDITION_BY_AUTHORS to find editions by authors in the storage\n" +
@@ -118,6 +123,14 @@ public class Consumer {
                 "Enter SORT_ALBUM_BY_TITLE to sort the albums by title\n" +
                 "Enter SORT_BOOK_BY_NUMBER_PAGES to sort the books by number of pages\n" +
                 "Enter SORT_JOURNAL_BY_AUTHORS to sort the journals by authors");
+    }
+
+    /**
+     * gets request
+     * @return
+     */
+    public String setRequest() {
+        Scanner sc = new Scanner(System.in);
         return sc.nextLine();
     }
 
@@ -126,12 +139,22 @@ public class Consumer {
      * @param response - stores the response to the request
      */
     public void show(String response) {
-            try (FileWriter outputStream = new FileWriter("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part2.task01.UpdBook/src/files/output.txt")) {
+        try (FileWriter outputStream = new FileWriter("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part2.task01.UpdBook/src/files/output.txt")) {
             outputStream.write(response);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("Error opening the file");
+        }
+    }
+
+    /**
+     * outputs the observer info in the file
+     * @param info - information from observers
+     */
+    public void showObserverInf(String info) {
+        try (FileWriter outputStream = new FileWriter("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part2.task01.UpdBook/src/files/observerOutput.txt")) {
+            outputStream.write(info);
+        } catch (IOException e) {
+            System.out.println("Error opening the file");
         }
     }
 }

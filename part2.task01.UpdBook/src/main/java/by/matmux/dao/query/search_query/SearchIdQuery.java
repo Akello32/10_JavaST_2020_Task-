@@ -4,7 +4,6 @@ import by.matmux.beans.Edition;
 import by.matmux.dao.query.EditionQuery;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 public class SearchIdQuery implements EditionQuery {

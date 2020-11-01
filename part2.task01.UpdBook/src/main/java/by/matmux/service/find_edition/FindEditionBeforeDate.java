@@ -2,7 +2,6 @@ package by.matmux.service.find_edition;
 
 import by.matmux.beans.Edition;
 import by.matmux.dao.EditionRepository;
-import by.matmux.dao.query.search_query.SearchAllEditionByType;
 import by.matmux.dao.query.search_query.SearchDateQuery;
 
 import java.util.*;

@@ -1,0 +1,4 @@
+AlbumListener: listener={2002=1, 2019=2, 2010=1};
+BookListener: listener={2020=2};
+JournalListener: listener={1982=1};
+

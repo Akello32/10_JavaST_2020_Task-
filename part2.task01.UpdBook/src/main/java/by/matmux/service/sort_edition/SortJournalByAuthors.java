@@ -2,7 +2,6 @@ package by.matmux.service.sort_edition;
 
 import by.matmux.beans.Edition;
 import by.matmux.dao.EditionRepository;
-import by.matmux.dao.query.sort_query.SortAuthorsQuery;
 import by.matmux.dao.query.sort_query.SortJournalByAuthorsQuery;
 
 import java.util.Collections;

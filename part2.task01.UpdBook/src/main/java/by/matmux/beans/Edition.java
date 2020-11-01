@@ -68,6 +68,30 @@ public abstract class Edition {
         return yearOfPublishing;
     }
 
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthors(ArrayList<String> authors) {
+        this.authors = authors;
+    }
+
+    public void setNumberOfPage(int numberOfPage) {
+        this.numberOfPage = numberOfPage;
+    }
+
+    public void setPublishingHouse(String publishingHouse) {
+        this.publishingHouse = publishingHouse;
+    }
+
+    public void setYearOfPublishing(Date yearOfPublishing) {
+        this.yearOfPublishing = yearOfPublishing;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
     @Override
     public int hashCode() {
         return super.hashCode();

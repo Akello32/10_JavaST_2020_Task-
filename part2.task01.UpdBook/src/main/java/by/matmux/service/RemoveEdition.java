@@ -1,6 +1,5 @@
 package by.matmux.service;
 
-import by.matmux.beans.Book;
 import by.matmux.beans.Edition;
 import by.matmux.dao.EditionRepository;
 

@@ -8,6 +8,7 @@ public final class ServiceFactory {
 
     private final AddEdition addEdition = new AddEdition();
     private final RemoveEdition removeEdition = new RemoveEdition();
+    private final UpdateEdition updateEdition = new UpdateEdition();
 
     private final SetEditionsFromFile setEditionsFromFile = new SetEditionsFromFile();
 
@@ -40,6 +41,10 @@ public final class ServiceFactory {
 
     public RemoveEdition getRemoveEdition() {
         return removeEdition;
+    }
+
+    public UpdateEdition getUpdateEdition() {
+        return updateEdition;
     }
 
     public SetEditionsFromFile getSetEditionsFromFile() {
