@@ -3,8 +3,8 @@ package by.matmux;
 import static java.lang.Thread.sleep;
 
 public class Producer extends Thread {
-    Store store; // объект склада, куда кладем товар
-    int product = 5; // количество товаров, которые надо добавить
+    Store store;
+    int product = 5;
 
     Producer(Store store) {
         this.store = store;
@@ -12,10 +12,10 @@ public class Producer extends Thread {
 
     public void run() {
         try {
-            while (product > 0) { // пока у производителя имеются товары
-                product = product - store.put(); // кладем один товар на склад
+            while (product > 0) {
+                product = product - store.put();
                 System.out.println("производителю осталось произвести " + product + " товар(ов)");
-                sleep(100); // время простоя
+                sleep(100);
             }
         } catch (InterruptedException e) {
             System.out.println("поток производителя прерван");

@@ -1,28 +1,27 @@
 package by.matmux;
 
 public class Store {
-    int counter = 0; // счетчик товаров
-    final int N = 5; // максимально допустимое число
+    int counter = 0;
+    final int N = 5;
 
-    // синхронизированный метод для производителей
     synchronized int put() {
-        if(counter<=N) //если товаров меньше
+        if(counter<=N)
         {
-            counter++; // кладем товар
+            counter++;
             System.out.println ("склад имеет " + counter + " товар(ов)");
-            return 1; // в случае удачного выполнения возвращаем 1
+            return 1;
         }
-        return 0;// в случае неудачного выполнения возвращаем 0
+        return 0;
     }
-    // метод для покупателей
+
     synchronized int get() {
-        if(counter>0) //если хоть один товар присутствует
+        if(counter>0)
         {
-            counter--; //берем товар
+            counter--;
             System.out.println ("склад имеет " + counter + " товар(ов)");
-            return 1;// в случае удачного выполнения возвращаем 1
+            return 1;
         }
-        return 0;// в случае неудачного выполнения возвращаем 0
+        return 0;
     }
 }
 
