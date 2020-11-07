@@ -9,14 +9,16 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Scanner;
 
-public class SetMatrixFromFile {
-    private static final Logger logger = LogManager.getLogger(SetMatrixFromFile.class.getName());
+public final class SetMatrixFromFile {
+    private static final Logger logger = LogManager.getLogger(SetMatrixFromFile.class);
+
+    private SetMatrixFromFile() { }
 
     /**
      * Fills matrix from file
      * @param matrix - the matrix that needs to be filled
      */
-    public void set(final Matrix matrix) {
+    public static void set(final Matrix matrix) {
         Path path = Paths.get("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part02.task02.Thread/src/main/files/inputMatrix.txt");
 
         try (FileInputStream reader = new FileInputStream(String.valueOf(path))) {

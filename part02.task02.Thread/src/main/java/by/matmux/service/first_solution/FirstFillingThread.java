@@ -46,14 +46,15 @@ public class FirstFillingThread implements Runnable {
         try {
             log.debug(() -> Thread.currentThread().getName() + " started");
             for (int i = 0; i < matrix.length(); i++) {
-                TimeUnit.MILLISECONDS.sleep(200);
                 if (!matrix.getMatrix()[i][i].isState() && count != numberCells) {
                     matrix.getMatrix()[i][i].setValue(id);
                     matrix.getMatrix()[i][i].setState(true);
                     log.debug("Value set");
+                    TimeUnit.MILLISECONDS.sleep(200);
                     count++;
                     showMatrix.show();
                 }
+                if (count == numberCells) { break; }
             }
         } catch (InterruptedException e) {
             log.warn("InterruptedException");
