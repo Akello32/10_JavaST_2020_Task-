@@ -1,8 +1,6 @@
 package by.matmux.controller;
 
-import by.matmux.controller.command.CallsFirstSolutionCommand;
-import by.matmux.controller.command.Command;
-import by.matmux.controller.command.CommandName;
+import by.matmux.controller.command.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -15,6 +13,9 @@ public final class CommandProvider {
 
     CommandProvider() {
         repository.put(CommandName.FIRST_SOLUTION, new CallsFirstSolutionCommand());
+        repository.put(CommandName.SECOND_SOLUTION, new CallSecondSolCommand());
+        repository.put(CommandName.THIRD_SOLUTION, new CallThirdSolCommand());
+        repository.put(CommandName.FOURTH_SOLUTION, new CallsFirstSolutionCommand());
     }
 
     Command getCommand(final String name) {

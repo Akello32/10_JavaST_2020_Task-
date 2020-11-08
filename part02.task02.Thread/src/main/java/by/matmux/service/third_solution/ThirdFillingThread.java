@@ -1,23 +1,19 @@
-package by.matmux.service.second_solution;
+package by.matmux.service.third_solution;
 
 import by.matmux.beans.Matrix;
 import by.matmux.service.ShowMatrix;
-import by.matmux.service.first_solution.FirstFillingThread;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
-public class SecondFillingThread implements Runnable {
+public class ThirdFillingThread extends Thread {
     /**
      * Logger.
      */
-    private static final Logger log = LogManager.getLogger(FirstFillingThread.class);
-    /**
-     * Semaphore.
-     */
-    private Semaphore sem;
+    private static final Logger log = LogManager.getLogger(ThirdFillingThread.class);
 
     /**
      * Thread number counter.
@@ -49,16 +45,39 @@ public class SecondFillingThread implements Runnable {
      */
     private int position;
 
+    /**
+     * CountDown for blocking.
+     */
+    private CountDownLatch countDown;
 
-    public SecondFillingThread(final int numberCells, final int position, final Semaphore sem) {
+    /**
+     * Semaphore.
+     */
+    private Semaphore sem;
+
+    public ThirdFillingThread(final int numberCells, final int position, final Semaphore sem) {
         this.sem = sem;
         this.numberCells = numberCells;
         this.position = position;
+        this.countDown = new CountDownLatch(numberCells);
         id = ++uniqueNumber;
     }
 
-    /** Fills in the diagonal elements of the matrix and
-     * calls the method to output the matrix to a file. Use semaphore.
+    public int getNumberCells() {
+        return numberCells;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public CountDownLatch getCountDown() {
+        return countDown;
+    }
+
+    /**
+     * Fills in the diagonal elements of the matrix and
+     * calls the method to output the matrix to a file
      */
     @Override
     public void run() {
@@ -69,10 +88,11 @@ public class SecondFillingThread implements Runnable {
                 if (!matrix.getMatrix()[i][i].isState()) {
                     matrix.getMatrix()[i][i].setValue(id);
                     matrix.getMatrix()[i][i].setState(true);
-                    log.debug(() -> Thread.currentThread().getName() + ": Value set");
                     TimeUnit.MILLISECONDS.sleep(300);
-                    showMatrix.show();
+                    log.debug(() -> Thread.currentThread().getName() + ": Value set");
 
+                    countDown.await();
+                    showMatrix.show();
                 }
             }
         } catch (InterruptedException e) {

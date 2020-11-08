@@ -1,13 +1,14 @@
-package by.matmux.service.calling_thread;
+package by.matmux.service.second_solution;
 
 import by.matmux.beans.Matrix;
 import by.matmux.controller.Runner;
+import by.matmux.service.CheckMatrix;
 import by.matmux.service.SetNumberOfThread;
-import by.matmux.service.second_solution.SecondFillingThread;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 
 public class CallSecondSolution {
     /** Logger. */
@@ -20,6 +21,7 @@ public class CallSecondSolution {
     public void call(Matrix matrix) {
         M = SetNumberOfThread.set();
         Semaphore sem = new Semaphore(M, true);
+        CheckMatrix checkMatrix = new CheckMatrix();
         int[] res = numberCells(M, matrix.length());
         for (int i = 0; i < M; i++) {
             if (i == (M - 1)) {
@@ -32,6 +34,14 @@ public class CallSecondSolution {
             Thread t = new Thread(new SecondFillingThread(res[0], i * res[0], sem));
             t.setName("Thread" + (i + 1));
             t.start();
+        }
+
+        try {
+            TimeUnit.MILLISECONDS.sleep(matrix.length() * 400);
+            new Thread(checkMatrix).start();
+        } catch (InterruptedException ex) {
+            log.debug("InterruptedException when calling the check");
+            Thread.currentThread().interrupt();
         }
     }
 

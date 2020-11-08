@@ -6,7 +6,7 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Logger name="by.matmux.service.first_solution.FirstFillingThread" level="debug">
+        <Logger name="by.matmux.service" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="error">
