@@ -15,7 +15,7 @@ public final class CommandProvider {
         repository.put(CommandName.FIRST_SOLUTION, new CallsFirstSolutionCommand());
         repository.put(CommandName.SECOND_SOLUTION, new CallSecondSolCommand());
         repository.put(CommandName.THIRD_SOLUTION, new CallThirdSolCommand());
-        repository.put(CommandName.FOURTH_SOLUTION, new CallsFirstSolutionCommand());
+        repository.put(CommandName.FOURTH_SOLUTION, new CallFourthSolCommand());
     }
 
     Command getCommand(final String name) {
@@ -26,9 +26,9 @@ public final class CommandProvider {
             commandName = CommandName.valueOf(name.toUpperCase());
             command = repository.get(commandName);
         } catch (IllegalArgumentException ex) {
-            log.warn("IllegalArgumentException");
+            log.debug("IllegalArgumentException");
         } catch ( NullPointerException ex) {
-            log.warn("NullPointerException");
+            log.debug("NullPointerException");
         }
 
         return command;

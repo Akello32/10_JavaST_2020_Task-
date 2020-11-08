@@ -9,20 +9,16 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.concurrent.locks.ReentrantLock;
 
 public final class ShowMatrix {
-    /** Singleton object */
+    /** Singleton object. */
     private static final ShowMatrix instance = new ShowMatrix();
 
-    /** Logger */
+    /** Logger. */
     private static final Logger log = LogManager.getLogger(ShowMatrix.class.getName());
 
-    /** Matrix */
+    /** Matrix. */
     private final Matrix matrix = Matrix.getInstance();
-
-    /** Lock */
-    private ReentrantLock lock;
 
     private ShowMatrix() { }
 
@@ -31,7 +27,7 @@ public final class ShowMatrix {
     }
 
     /**
-     * Shows the matrix in the file
+     * Shows the matrix in the file.
      */
     public void show() {
         Path path = Paths.get("src/main/files/outputMatrix.txt");

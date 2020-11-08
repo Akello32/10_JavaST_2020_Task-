@@ -1,4 +1,4 @@
-package by.matmux.service.first_solution;
+package by.matmux.service.fourth_solution;
 
 import by.matmux.beans.Matrix;
 import by.matmux.service.CheckMatrix;
@@ -6,33 +6,31 @@ import by.matmux.service.SetNumberOfThread;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.concurrent.Phaser;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.locks.ReentrantLock;
 
-public class CallFirstSolution {
+public class CallFourthSolution {
     /** Logger. */
-    private static final Logger log = LogManager.getLogger(CallFirstSolution.class);
+    private static final Logger log = LogManager.getLogger(CallFourthSolution.class);
 
-    /** Lock. */
-    final ReentrantLock lock = new ReentrantLock();
-
-
-    /** Calls the first solution. */
+    /** Calls the fourth solution. */
     public void call(Matrix matrix) {
         int m = SetNumberOfThread.set();
+        Phaser phaser = new Phaser(m);
         int[] res = numberCells(m, matrix.length());
         CheckMatrix checkMatrix = new CheckMatrix();
         for (int i = 1; i <= m; i++) {
             if (i == m) {
-                Thread t = new Thread(new FirstFillingThread(res[1] == res[0] ? res[0] : res[1] + res[0], lock));
+                Thread t = new FourthFillingThread(res[1] == res[0] ? res[0] : res[1] + res[0], phaser);
                 t.setName("Thread" + i);
                 t.start();
                 continue;
             }
-            Thread t = new Thread(new FirstFillingThread(res[0], lock));
+            Thread t = new FourthFillingThread(res[0], phaser);
             t.setName("Thread" + i);
             t.start();
         }
+        phaser.arriveAndAwaitAdvance();
 
         try {
             TimeUnit.MILLISECONDS.sleep(matrix.length() * 400L);
@@ -41,6 +39,7 @@ public class CallFirstSolution {
             log.debug("InterruptedException when calling the check");
             Thread.currentThread().interrupt();
         }
+
     }
 
     /** Sets the number of cells that the thread fills */

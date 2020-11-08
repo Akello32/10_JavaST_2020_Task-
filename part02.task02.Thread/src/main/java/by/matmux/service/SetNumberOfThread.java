@@ -1,6 +1,5 @@
 package by.matmux.service;
 
-import by.matmux.beans.Matrix;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,11 +11,12 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class SetNumberOfThread {
+    /** Logger. */
     private static final Logger logger = LogManager.getLogger(SetNumberOfThread.class);
 
     private SetNumberOfThread() { }
     /**
-     * Set number of thread from file
+     * Set number of thread from file.
      */
     public static int set() {
         Path path = Paths.get("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part02.task02.Thread/src/main/files/inputNumberOfThread");

@@ -2,18 +2,24 @@ package by.matmux.controller;
 
 import by.matmux.beans.Matrix;
 import by.matmux.service.SetMatrixFromFile;
-import by.matmux.service.second_solution.CallSecondSolution;
-import by.matmux.service.third_solution.CallThirdSolution;
+import by.matmux.view.Consumer;
 
 public class Runner {
     public static void main(String[] args) {
+        final Consumer consumer = new Consumer();
         final Matrix matrix = Matrix.getInstance();
         final Controller controller = new Controller();
-        SetMatrixFromFile.set(matrix);
-//         controller.execute("FIRST_SOLUTION", matrix);
-/*        CallSecondSolution call = new CallSecondSolution();
-        call.call(matrix);*/
-        CallThirdSolution callThirdSolution = new CallThirdSolution();
-        callThirdSolution.call(matrix);
+        boolean choice = true;
+
+        while (choice) {
+            consumer.showSol();
+            String request = consumer.enterRequest();
+            SetMatrixFromFile.set(matrix);
+            if (request.equals("EXIT")) {
+                choice = false;
+            } else {
+                controller.execute(request, matrix);
+            }
+        }
     }
 }

@@ -1,7 +1,6 @@
 package by.matmux.service.second_solution;
 
 import by.matmux.beans.Matrix;
-import by.matmux.controller.Runner;
 import by.matmux.service.CheckMatrix;
 import by.matmux.service.SetNumberOfThread;
 import org.apache.logging.log4j.LogManager;
@@ -12,19 +11,16 @@ import java.util.concurrent.TimeUnit;
 
 public class CallSecondSolution {
     /** Logger. */
-    private static final Logger log = LogManager.getLogger(Runner.class);
-
-    /** Number of thread. */
-    private int M;
+    private static final Logger log = LogManager.getLogger(CallSecondSolution.class);
 
     /** Calls the second solution. */
     public void call(Matrix matrix) {
-        M = SetNumberOfThread.set();
-        Semaphore sem = new Semaphore(M, true);
+        int m = SetNumberOfThread.set();
+        Semaphore sem = new Semaphore(m, true);
         CheckMatrix checkMatrix = new CheckMatrix();
-        int[] res = numberCells(M, matrix.length());
-        for (int i = 0; i < M; i++) {
-            if (i == (M - 1)) {
+        int[] res = numberCells(m, matrix.length());
+        for (int i = 0; i < m; i++) {
+            if (i == (m - 1)) {
                 Thread t = new Thread(new SecondFillingThread(res[1] == res[0] ? res[0] : res[1] + res[0] ,
                         i * res[0], sem));
                 t.setName("Thread" + (i + 1));
@@ -37,7 +33,7 @@ public class CallSecondSolution {
         }
 
         try {
-            TimeUnit.MILLISECONDS.sleep(matrix.length() * 400);
+            TimeUnit.MILLISECONDS.sleep(matrix.length() * 400L);
             new Thread(checkMatrix).start();
         } catch (InterruptedException ex) {
             log.debug("InterruptedException when calling the check");

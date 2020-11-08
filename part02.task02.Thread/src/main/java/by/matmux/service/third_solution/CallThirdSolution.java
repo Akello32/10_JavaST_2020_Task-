@@ -14,17 +14,14 @@ public class CallThirdSolution {
     /** Logger. */
     private static final Logger log = LogManager.getLogger(CallThirdSolution.class);
 
-    /** Number of thread. */
-    private int M;
-
     /** Calls the second solution. */
     public void call(Matrix matrix) {
-        M = SetNumberOfThread.set();
-        Semaphore sem = new Semaphore(M, true);
-        int[] res = numberCells(M, matrix.length());
-        List<ThirdFillingThread> threads = new ArrayList<>(M);
-        for (int i = 0; i < M; i++) {
-            if (i == (M - 1)) {
+        int m = SetNumberOfThread.set();
+        Semaphore sem = new Semaphore(m, true);
+        int[] res = numberCells(m, matrix.length());
+        List<ThirdFillingThread> threads = new ArrayList<>(m);
+        for (int i = 0; i < m; i++) {
+            if (i == (m - 1)) {
                 threads.add(new ThirdFillingThread(res[1] == res[0] ? res[0] : res[1] + res[0],
                         i * res[0], sem));
                 threads.get(i).setName("Thread" + (i + 1));
