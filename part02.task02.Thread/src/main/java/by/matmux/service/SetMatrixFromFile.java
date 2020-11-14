@@ -20,9 +20,11 @@ public final class SetMatrixFromFile {
      * @param matrix - the matrix that needs to be filled.
      */
     public static void set(final Matrix matrix) {
-        Path path = Paths.get("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part02.task02.Thread/src/main/files/inputMatrix.txt");
+        // Path path = Paths.get("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part02.task02.Thread/src/main/files/inputMatrix.txt");
+        File file = new File("src/main/files/inputMatrix.txt");
+        String path = file.getAbsolutePath();
 
-        try (FileInputStream reader = new FileInputStream(String.valueOf(path))) {
+        try (FileInputStream reader = new FileInputStream(path)) {
             Scanner sc = new Scanner(reader);
             StringBuilder sb = new StringBuilder();
             while (sc.hasNextLine()) {

@@ -3,6 +3,7 @@ package by.matmux.service;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,8 +20,11 @@ public class SetNumberOfThread {
      * Set number of thread from file.
      */
     public static int set() {
-        Path path = Paths.get("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part02.task02.Thread/src/main/files/inputNumberOfThread");
-        try (FileInputStream reader = new FileInputStream(String.valueOf(path))) {
+        //Path path = Paths.get("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part02.task02.Thread/src/main/files/inputNumberOfThread");
+        File file = new File("src/main/files/inputNumberOfThread");
+        String path = file.getAbsolutePath();
+
+        try (FileInputStream reader = new FileInputStream(path)) {
             Scanner sc = new Scanner(reader);
             return sc.nextInt();
         } catch (FileNotFoundException e) {

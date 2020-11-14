@@ -21,11 +21,11 @@ public class ParagraphParser {
             log.debug("Null object");
             return;
         }
-        Pattern pattern = Pattern.compile("[^\\t]*(\\t$)");
+        Pattern pattern = Pattern.compile("(\\t.+)");
         Matcher matcher = pattern.matcher(text.getValue());
 
         while (matcher.find()) {
-            String tmp = text.getValue().substring(matcher.start(), matcher.end());
+            String tmp = matcher.group();
             text.addParagraph(new Paragraph(tmp));
         }
     }
