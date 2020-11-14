@@ -12,7 +12,7 @@ public final class CommandProvider {
     private final Map<CommandName, Command> repository = new HashMap<>();
 
     CommandProvider() {
-        repository.put(CommandName.FIRST_SOLUTION, new CallsFirstSolutionCommand());
+        repository.put(CommandName.FIRST_SOLUTION, new CallFirstSolutionCommand());
         repository.put(CommandName.SECOND_SOLUTION, new CallSecondSolCommand());
         repository.put(CommandName.THIRD_SOLUTION, new CallThirdSolCommand());
         repository.put(CommandName.FOURTH_SOLUTION, new CallFourthSolCommand());
