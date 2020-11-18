@@ -21,7 +21,7 @@ public final class SetMatrixFromFile {
      */
     public static void set(final Matrix matrix) {
         // Path path = Paths.get("/home/mustafarara/GitFolder/10_JavaST-2020_Task-/part02.task02.Thread/src/main/files/inputMatrix.txt");
-        File file = new File("src/main/files/inputMatrix.txt");
+        File file = new File("src/main/file/inputMatrix.txt");
         String path = file.getAbsolutePath();
 
         try (FileInputStream reader = new FileInputStream(path)) {
