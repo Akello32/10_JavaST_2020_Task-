@@ -48,7 +48,7 @@ public class SecondFillingThread implements Runnable {
      */
     private int position;
 
-
+    //TODO semaphore(1)
     public SecondFillingThread(final int numberCells, final int position, final Semaphore sem) {
         this.sem = sem;
         this.numberCells = numberCells;

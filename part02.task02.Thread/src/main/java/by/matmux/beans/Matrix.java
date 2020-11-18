@@ -43,6 +43,7 @@ public final class Matrix {
      * @param n - size of the matrix
      * @return true - if n does not go beyond the bounds, otherwise - false
      */
+    //TODO матрица не singleton, вынести в конструктор
     public boolean setN(final int n) {
         if (n > N1 && n < N2) {
             this.n = n;

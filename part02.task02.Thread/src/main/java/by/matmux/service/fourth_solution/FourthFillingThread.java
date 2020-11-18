@@ -53,6 +53,7 @@ public class FourthFillingThread extends Thread {
      * Fills in the diagonal elements of the matrix and
      * calls the method to output the matrix to a file. Use semaphore.
      */
+    //TODO проверка к фазам
     @Override
     public void run() {
         int count = 0;
