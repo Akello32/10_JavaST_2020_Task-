@@ -9,7 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class SetTextFromFile {
+public final class SetTextFromFile {
     /** Logger. */
     private static final Logger log = LogManager.getLogger(SetTextFromFile.class);
 

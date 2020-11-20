@@ -1,6 +1,6 @@
 package by.matmux.service.parser;
 
-import by.matmux.bean.PartsText;
+import by.matmux.bean.TextComposite;
 
 public abstract class BaseParser implements CommonParser {
     /** Next parser in the chain. */
@@ -19,7 +19,7 @@ public abstract class BaseParser implements CommonParser {
      * @param text
      * @return calling the parser method
      */
-    protected PartsText parserNext(final String text) {
+    protected TextComposite parserNext(final String text) {
         if (next == null || text.equals("")) {
             return null;
         }

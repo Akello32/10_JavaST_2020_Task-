@@ -1,7 +1,7 @@
 package by.matmux.service.parser;
 
 import by.matmux.bean.PartsText;
-import by.matmux.bean.TextAction;
+import by.matmux.bean.TextComposite;
 import by.matmux.bean.TextType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -35,16 +35,31 @@ public class SpecificParser extends BaseParser {
     public PartsText parser(final String text) {
         if (text == null || text.equals("")) {
             log.debug("Null object");
-            return new PartsText(" ", type);
+            return null;
         }
+
+        Pattern patternPunct = Pattern.compile(TextType.PUNCTUATION.getRegexp());
+        Matcher matcherPunct = patternPunct.matcher(text);
+        boolean punct = false;
+        if (type == TextType.LEXEME) {
+            punct = true;
+        }
+
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
-        PartsText result = new PartsText(text, type);
+        PartsText result = new PartsText(text, type, 0);
         while (matcher.find()) {
-            result.add(new PartsText(matcher.group(), nextType));
+            result.addText(new PartsText(matcher.group(), nextType, matcher.start()));
         }
-        for (PartsText p : result.getParts()) {
-            p.add(parserNext(p.getValue()));
+
+        if (punct) {
+            while (matcherPunct.find()) {
+                result.addText(new PartsText(matcherPunct.group(), TextType.PUNCTUATION, matcherPunct.start()));
+            }
+        }
+
+        for (TextComposite p : result.getParts()) {
+            p.addText(parserNext(p.toString()));
         }
         return result;
     }

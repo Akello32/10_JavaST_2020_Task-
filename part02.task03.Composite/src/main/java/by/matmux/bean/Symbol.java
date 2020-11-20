@@ -3,7 +3,7 @@ package by.matmux.bean;
 import java.util.Collections;
 import java.util.List;
 
-public class Symbol implements TextAction{
+public class Symbol implements TextComposite {
     private final char value;
 
     public Symbol(char value) {
@@ -16,7 +16,17 @@ public class Symbol implements TextAction{
     }
 
     @Override
-    public List<PartsText> getParts() {
-        return Collections.singletonList(new PartsText(String.valueOf(value), TextType.WORD));
+    public int getPosition() {
+        return 0;
+    }
+
+    @Override
+    public void addText(TextComposite text) {
+
+    }
+
+    @Override
+    public List<TextComposite> getParts() {
+        return Collections.singletonList(this);
     }
 }

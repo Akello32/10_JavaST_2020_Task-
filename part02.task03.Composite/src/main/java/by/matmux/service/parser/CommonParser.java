@@ -1,7 +1,7 @@
 package by.matmux.service.parser;
 
-import by.matmux.bean.PartsText;
+import by.matmux.bean.TextComposite;
 
 public interface CommonParser {
-    PartsText parser(String text);
+    TextComposite parser(String text);
 }
