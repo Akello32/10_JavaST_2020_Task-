@@ -5,7 +5,7 @@ import by.matmux.service.query.SortParagraphQuery;
 import by.matmux.service.query.SortWordQuery;
 
 public final class ServiceFactory {
-    private final static ServiceFactory instance = new ServiceFactory();
+    private static final ServiceFactory instance = new ServiceFactory();
 
     private final SortLexemeQuery lexemeQuery = new SortLexemeQuery();
     private final SortWordQuery wordQuery = new SortWordQuery();

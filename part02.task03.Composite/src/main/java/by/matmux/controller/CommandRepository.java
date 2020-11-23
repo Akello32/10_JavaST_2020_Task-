@@ -1,6 +1,6 @@
 package by.matmux.controller;
 
-import by.matmux.controller.Command.*;
+import by.matmux.controller.command.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,10 +18,10 @@ public final class CommandRepository {
         if (name == null || name.equals("")) { return null; }
         CommandType commandName = null;
         Command command = null;
-        try{
+        try {
             commandName = CommandType.valueOf(name.toUpperCase());
             command = repository.get(commandName);
-        }catch(IllegalArgumentException e) {
+        } catch(IllegalArgumentException e) {
             command = repository.get(CommandType.WORD_REQ);
         }
         return command;

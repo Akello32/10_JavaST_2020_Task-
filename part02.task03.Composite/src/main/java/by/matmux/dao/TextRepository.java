@@ -6,15 +6,11 @@ import by.matmux.bean.TextType;
 import by.matmux.service.SetTextFromFile;
 
 public class TextRepository implements Repository {
-    TextComposite text;
+    private static final TextComposite text = new PartsText(SetTextFromFile.set(), TextType.TEXT);
 
-    @Override
-    public void setText() {
-        text = new PartsText(SetTextFromFile.set(), TextType.TEXT);
-    }
+    private TextRepository() {}
 
-    @Override
-    public TextComposite getComposite() {
+    public static TextComposite getComposite() {
         return text;
     }
 

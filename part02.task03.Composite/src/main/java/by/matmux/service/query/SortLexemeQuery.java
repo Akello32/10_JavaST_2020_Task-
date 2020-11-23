@@ -1,8 +1,8 @@
 package by.matmux.service.query;
 
-import by.matmux.bean.PartsText;
 import by.matmux.bean.TextComposite;
 import by.matmux.bean.TextType;
+import by.matmux.dao.TextRepository;
 import by.matmux.service.parser.BaseParser;
 import by.matmux.service.parser.SpecificParser;
 import org.apache.commons.lang.StringUtils;
@@ -15,14 +15,14 @@ public class SortLexemeQuery implements Query{
     List<Integer> listCount = new ArrayList<>();
 
     @Override
-    public String sort(final TextComposite text) {
+    public String sort() {
+        TextComposite text = TextRepository.getComposite();
         char n = 'e';
         BaseParser parser = new SpecificParser(TextType.TEXT, TextType.PARAGRAPH);
         parser.linkWith(new SpecificParser(TextType.PARAGRAPH ,TextType.SENTENCE)).
                 linkWith(new SpecificParser(TextType.SENTENCE, TextType.LEXEME)).
                 linkWith(new SpecificParser(TextType.LEXEME, TextType.WORD));
 
-//        TextComposite partsText = new PartsText(text, TextType.TEXT);
         parser.parser(text.toString(), text);
 
         Comparator<TextComposite> comparator = Comparator.comparing(TextComposite::toString);
@@ -62,7 +62,3 @@ public class SortLexemeQuery implements Query{
         composite.getParts().set(in2, t);
     }
 }
-
-/*                   b.getParts().stream().map(TextComposite::toString).
-                        sorted(Comparator.comparingInt((String word) -> StringUtils.countMatches(word, String.valueOf(n))).
-                        reversed().thenComparing(naturalOrder())).collect(Collectors.toList());*/
