@@ -19,10 +19,10 @@ public abstract class BaseParser implements CommonParser {
      * @param text
      * @return calling the parser method
      */
-    protected TextComposite parserNext(final String text) {
+    protected boolean parserNext(final String text, final TextComposite composite) {
         if (next == null || text.equals("")) {
-            return null;
+            return false;
         }
-        return next.parser(text);
+        return next.parser(text, composite);
     }
 }

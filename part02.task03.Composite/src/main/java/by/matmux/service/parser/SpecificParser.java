@@ -32,10 +32,10 @@ public class SpecificParser extends BaseParser {
      * @return Result of parsing
      */
     @Override
-    public PartsText parser(final String text) {
+    public boolean parser(final String text, final TextComposite result) {
         if (text == null || text.equals("")) {
             log.debug("Null object");
-            return null;
+            return false;
         }
 
         Pattern patternPunct = Pattern.compile(TextType.PUNCTUATION.getRegexp());
@@ -44,23 +44,20 @@ public class SpecificParser extends BaseParser {
         if (type == TextType.LEXEME) {
             punct = true;
         }
-
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(text);
-        PartsText result = new PartsText(text, type, 0);
         while (matcher.find()) {
-            result.addText(new PartsText(matcher.group(), nextType, matcher.start()));
+            result.addText(new PartsText(matcher.group(), nextType));
         }
-
         if (punct) {
             while (matcherPunct.find()) {
-                result.addText(new PartsText(matcherPunct.group(), TextType.PUNCTUATION, matcherPunct.start()));
+                result.addText(new PartsText(matcherPunct.group(), TextType.PUNCTUATION));
             }
         }
-
         for (TextComposite p : result.getParts()) {
-            p.addText(parserNext(p.toString()));
+            parserNext(p.toString(), p);
         }
-        return result;
+
+        return true;
     }
 }

@@ -1,5 +1,7 @@
 package by.matmux.service.query;
 
+import by.matmux.bean.TextComposite;
+
 public interface Query {
-    String sort(String text);
+    String sort(TextComposite text);
 }

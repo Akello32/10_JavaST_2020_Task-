@@ -16,11 +16,6 @@ public class Symbol implements TextComposite {
     }
 
     @Override
-    public int getPosition() {
-        return 0;
-    }
-
-    @Override
     public void addText(TextComposite text) {
 
     }

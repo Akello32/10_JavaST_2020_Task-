@@ -8,6 +8,4 @@ public interface TextComposite {
     List<TextComposite> getParts();
 
     String getValue();
-
-    int getPosition();
 }
