@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<touristVouchers xmlns="http://matmux.by/tourism"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://matmux.by/tourism tourism.xsd">
+    <touristVoucher nameVouchers=" " country="ENG">
+        <date>2021-02-12</date>
+        <days>2</days>
+        <cost>500</cost>
+        <transport>
+            <type>Airplane</type>
+            <brand>Air</brand>
+            <yearOfManufacture>2020</yearOfManufacture>
+        </transport>
+        <hotel>
+            <rating>3</rating>
+            <meals>BB</meals>
+            <room typeRoom="LUX" persons="3">
+                <TV>true</TV>
+                <conditioner>false</conditioner>
+            </room>
+        </hotel>
+    </touristVoucher>
+</touristVouchers>

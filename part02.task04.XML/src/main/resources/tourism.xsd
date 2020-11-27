@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema attributeFormDefault="unqualified"
+        elementFormDefault="qualified"
+        xmlns="http://www.w3.org/2001/XMLSchema"
+        targetNamespace="http://matmux.by/tourism"
+        xmlns:tns="http://matmux.by/tourism">
+    <element name="touristVouchers">
+        <complexType>
+            <sequence>
+                <element name="touristVoucher" type="tns:Tourism"
+                         minOccurs="1"
+                         maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+
+    <complexType name="Tourism">
+        <sequence>
+            <element name="date" type="date"/>
+            <element name="days" type="int"/>
+            <element name="cost" type="int"/>
+            <element name="transport" type="tns:Transport"/>
+            <element name="hotel" type="tns:Hotel"/>
+        </sequence>
+        <attribute name="nameVouchers" type="tns:Name" use="required"/>
+        <attribute name="country">
+            <simpleType>
+                <restriction base="string">
+                    <enumeration value="ENG"/>
+                    <enumeration value="RUS"/>
+                    <enumeration value="BY"/>
+                    <enumeration value="USA"/>
+                    <enumeration value="UA"/>
+                </restriction>
+            </simpleType>
+        </attribute>
+    </complexType>
+
+    <simpleType name="Name">
+        <restriction base="ID">
+            <pattern value=" "/>
+        </restriction>
+    </simpleType>
+
+    <complexType name="Transport">
+        <sequence>
+            <element name="type" type="string"/>
+            <element name="brand" type="string"/>
+            <element name="yearOfManufacture" type="string"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Hotel">
+        <sequence>
+            <element name="rating" type="int"/>
+            <element name="meals" type="string"/>
+            <element name="room" type="tns:Room"/>
+        </sequence>
+    </complexType>
+
+    <complexType name="Room">
+        <sequence>
+            <element name="TV" type="boolean"/>
+            <element name="conditioner" type="boolean"/>
+        </sequence>
+        <attribute name="typeRoom" use="optional" default="Coach"/>
+        <attribute name="persons" use="required"/>
+    </complexType>
+</schema>
