@@ -76,18 +76,22 @@ public class VoucherDOMParser {
 
 		Airplane airplane = new Airplane();
 		Element airplaneElement = (Element) voucherElement.getElementsByTagName("airplane").item(0);
-		airplane.setAirlines(getElementTextContent(airplaneElement, "airlines"));
-		airplane.setBrand(getElementTextContent(airplaneElement, "brand"));
-		airplane.setSeat(Integer.parseInt(getElementTextContent(airplaneElement, "seat")));
-		airplane.setYearOfManufacture(Integer.parseInt(getElementTextContent(airplaneElement, "yearOfManufacture")));
-		voucher.setTransport(airplane);
+		if (airplaneElement != null) {
+			airplane.setAirlines(getElementTextContent(airplaneElement, "airlines"));
+			airplane.setBrand(getElementTextContent(airplaneElement, "brand"));
+			airplane.setSeat(Integer.parseInt(getElementTextContent(airplaneElement, "seat")));
+			airplane.setYearOfManufacture(Integer.parseInt(getElementTextContent(airplaneElement, "yearOfManufacture")));
+			voucher.setTransport(airplane);
+		}
 
 		Train train = new Train();
 		Element trainElement = (Element) voucherElement.getElementsByTagName("train").item(0);
-		train.setRailwayCar(trainElement.getAttribute("railwayCar"));
-		train.setBrand(getElementTextContent(airplaneElement, "brand"));
-		train.setYearOfManufacture(Integer.parseInt(getElementTextContent(airplaneElement, "yearOfManufacture")));
-		voucher.setTransport(train);
+		if (trainElement != null) {
+			train.setRailwayCar(trainElement.getAttribute("railwayCar"));
+			train.setBrand(getElementTextContent(trainElement, "brand"));
+			train.setYearOfManufacture(Integer.parseInt(getElementTextContent(trainElement, "yearOfManufacture")));
+			voucher.setTransport(train);
+		}
 
 		Hotel hotel = new Hotel();
 		Element hotelElement = (Element) voucherElement.getElementsByTagName("hotel").item(0);
@@ -97,7 +101,7 @@ public class VoucherDOMParser {
 		Room room = new Room();
 		Element roomElement = (Element) voucherElement.getElementsByTagName("room").item(0);
 		room.setTypeRoom(roomElement.getAttribute("typeRoom"));
-		room.setPersons(Integer.parseInt(roomElement.getAttribute("typeRoom")));
+		room.setPersons(Integer.parseInt(roomElement.getAttribute("persons")));
 		room.setConditioner(Boolean.parseBoolean(getElementTextContent(roomElement, "conditioner")));
 		room.setTv(Boolean.parseBoolean(getElementTextContent(roomElement, "TV")));
 		hotel.setRoom(room);
@@ -109,6 +113,6 @@ public class VoucherDOMParser {
 	private static String getElementTextContent(Element element, String elementName) {
 		NodeList nList = element.getElementsByTagName(elementName);
 		Node node = nList.item(0);
-		return 	node.getTextContent();
+		return node.getTextContent();
 	}
 }

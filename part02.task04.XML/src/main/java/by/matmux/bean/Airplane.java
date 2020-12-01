@@ -1,18 +1,5 @@
 package by.matmux.bean;
 
-/**
- *     <complexType name="Airplane">
- *         <complexContent>
- *             <extension base="tns:Transport">
- *                 <sequence>
- *                     <element name="seat" type="int"/>
- *                     <element name="airlines" type="string"/>
- *                 </sequence>
- *             </extension>
- *         </complexContent>
- *     </complexType>
- */
-
 public class Airplane extends Transport {
     private int seat;
     private String airlines;
@@ -35,4 +22,10 @@ public class Airplane extends Transport {
     public void setAirlines(String airlines) {
         this.airlines = airlines;
     }
+
+	@Override
+	public String toString() {
+		return "Airplane: seat=" + seat + ", airlines=" + airlines + super.toString();
+	}
+    
 }

@@ -1,14 +1,6 @@
 package by.matmux.bean;
 
-/**
- *     <complexType name="Transport">
- *         <sequence>
- *             <element name="brand" type="string"/>
- *             <element name="yearOfManufacture" type="string"/>
- *         </sequence>
- *     </complexType>
- */
-public class Transport {
+public abstract class Transport {
     private String brand;
     private int yearOfManufacture;
 
@@ -29,4 +21,10 @@ public class Transport {
     public void setYearOfManufacture(int yearOfManufacture) {
         this.yearOfManufacture = yearOfManufacture;
     }
+
+	@Override
+	public String toString() {
+		return ", brand=" + brand + ", yearOfManufacture=" + yearOfManufacture;
+	}
+   
 }

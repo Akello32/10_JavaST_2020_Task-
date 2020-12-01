@@ -1,22 +1,5 @@
 package by.matmux.bean;
 
-/**
- *     <complexType name="Train">
- *         <complexContent>
- *             <extension base="tns:Transport">
- *                 <attribute name="railwayCar" use="optional" default="second-class">
- *                     <simpleType>
- *                         <restriction base="string">
- *                             <enumeration value="second-class"/>
- *                             <enumeration value="first-class"/>
- *                             <enumeration value="business-class"/>
- *                         </restriction>
- *                     </simpleType>
- *                 </attribute>
- *             </extension>
- *         </complexContent>
- *     </complexType>
- */
 public class Train extends Transport {
     private String railwayCar;
 
@@ -30,4 +13,10 @@ public class Train extends Transport {
     public void setRailwayCar(String railwayCar) {
         this.railwayCar = railwayCar;
     }
+
+	@Override
+	public String toString() {
+		return "Train: railwayCar=" + railwayCar + super.toString();
+	}
+    
 }

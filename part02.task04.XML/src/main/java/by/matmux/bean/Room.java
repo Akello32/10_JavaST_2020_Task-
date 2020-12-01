@@ -1,16 +1,5 @@
 package by.matmux.bean;
 
-/**
- *     <complexType name="Room">
- *         <sequence>
- *             <element name="TV" type="boolean"/>
- *             <element name="conditioner" type="boolean"/>
- *         </sequence>
- *         <attribute name="typeRoom" use="optional" default="Coach" type="string"/>
- *         <attribute name="persons" use="required" type="int"/>
- *     </complexType>
- */
-
 public class Room {
     private String typeRoom;
     private int persons;
@@ -51,5 +40,12 @@ public class Room {
     public void setConditioner(boolean conditioner) {
         this.conditioner = conditioner;
     }
+
+	@Override
+	public String toString() {
+		return "Room: typeRoom=" + typeRoom + ", persons=" + persons + 
+				", tv=" + tv + ", conditioner=" + conditioner;
+	}
+    
 }
 

@@ -22,4 +22,21 @@
             </room>
         </hotel>
     </touristVoucher>
+        <touristVoucher nameVoucher="AAA" country="RUS">
+        <date>2022-01-10</date>
+        <days>5</days>
+        <cost>600</cost>
+        <train railwayCar="business-class">
+            <brand>AN-500</brand>
+            <yearOfManufacture>1990</yearOfManufacture>
+        </train>
+        <hotel>
+            <rating>3</rating>
+            <meals>BB</meals>
+            <room typeRoom="LUX" persons="3">
+                <TV>true</TV>
+                <conditioner>false</conditioner>
+            </room>
+        </hotel>
+    </touristVoucher>
 </touristVouchers>

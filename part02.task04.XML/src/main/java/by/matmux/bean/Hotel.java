@@ -1,15 +1,5 @@
 package by.matmux.bean;
 
-/**
- *     <complexType name="Hotel">
- *         <sequence>
- *             <element name="rating" type="int"/>
- *             <element name="meals" type="string"/>
- *             <element name="room" type="tns:Room"/>
- *         </sequence>
- *     </complexType>
- */
-
 public class Hotel {
     private String meals;
     private int rating;
@@ -41,4 +31,10 @@ public class Hotel {
     public void setRoom(Room room) {
         this.room = room;
     }
+
+	@Override
+	public String toString() {
+		return "Hotel: meals=" + meals + ", rating=" + rating + ", room=" + room;
+	}
+    
 }

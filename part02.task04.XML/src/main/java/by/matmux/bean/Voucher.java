@@ -3,30 +3,6 @@ package by.matmux.bean;
 import java.util.Calendar;
 import java.util.Date;
 
-/**
- *     <complexType name="Tourism">
- *         <sequence>
- *             <element name="date" type="date"/>
- *             <element name="days" type="int"/>
- *             <element name="cost" type="int"/>
- *             <element ref="tns:transport"/>
- *             <element name="hotel" type="tns:Hotel"/>
- *         </sequence>
- *         <attribute name="nameVoucher" type="ID" use="required"/>
- *         <attribute name="country">
- *             <simpleType>
- *                 <restriction base="string">
- *                     <enumeration value="ENG"/>
- *                     <enumeration value="RUS"/>
- *                     <enumeration value="BY"/>
- *                     <enumeration value="USA"/>
- *                     <enumeration value="UA"/>
- *                     <enumeration value="UK"/>
- *                 </restriction>
- *             </simpleType>
- *         </attribute>
- *     </complexType>
- */
 public class Voucher {
     private String name;
     private Countries country;
@@ -94,4 +70,11 @@ public class Voucher {
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
+
+	@Override
+	public String toString() {
+		return "\nVoucher name=" + name + ",\n country=" + country + ",\n date=" + date + ",\n days=" + days + ",\n cost=" + cost
+				+ ",\n transport=" + transport + ",\n hotel=" + hotel;
+	}
+    
 }
