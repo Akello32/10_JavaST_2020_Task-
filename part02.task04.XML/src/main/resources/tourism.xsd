@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <schema attributeFormDefault="unqualified"
         elementFormDefault="qualified"
         xmlns="http://www.w3.org/2001/XMLSchema"
@@ -19,10 +20,10 @@
             <element name="date" type="date"/>
             <element name="days" type="int"/>
             <element name="cost" type="int"/>
-            <element name="transport" type="tns:Transport"/>
+            <element ref="tns:transport"/>
             <element name="hotel" type="tns:Hotel"/>
         </sequence>
-        <attribute name="nameVouchers" type="tns:Name" use="required"/>
+        <attribute name="nameVoucher" type="ID" use="required"/>
         <attribute name="country">
             <simpleType>
                 <restriction base="string">
@@ -31,25 +32,49 @@
                     <enumeration value="BY"/>
                     <enumeration value="USA"/>
                     <enumeration value="UA"/>
+                    <enumeration value="UK"/>
                 </restriction>
             </simpleType>
         </attribute>
     </complexType>
 
-    <simpleType name="Name">
-        <restriction base="ID">
-            <pattern value=" "/>
-        </restriction>
-    </simpleType>
-
     <complexType name="Transport">
         <sequence>
-            <element name="type" type="string"/>
             <element name="brand" type="string"/>
-            <element name="yearOfManufacture" type="string"/>
+            <element name="yearOfManufacture" type="int"/>
         </sequence>
     </complexType>
+    
+    <complexType name="Airplane">
+        <complexContent>
+            <extension base="tns:Transport">
+                <sequence>
+                    <element name="seat" type="int"/>
+                    <element name="airlines" type="string"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
 
+    <complexType name="Train">
+        <complexContent>
+            <extension base="tns:Transport">
+                <attribute name="railwayCar" use="optional" default="second-class">
+                    <simpleType>
+                        <restriction base="string">
+                            <enumeration value="second-class"/>
+                            <enumeration value="first-class"/>
+                            <enumeration value="business-class"/>
+                        </restriction>
+                    </simpleType>
+                </attribute>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="transport" type="tns:Transport" abstract="true"/>
+    <element name="airplane" type="tns:Airplane" substitutionGroup="tns:transport"/>
+    <element name="train" type="tns:Train" substitutionGroup="tns:transport"/>
+    
     <complexType name="Hotel">
         <sequence>
             <element name="rating" type="int"/>
@@ -63,7 +88,7 @@
             <element name="TV" type="boolean"/>
             <element name="conditioner" type="boolean"/>
         </sequence>
-        <attribute name="typeRoom" use="optional" default="Coach"/>
-        <attribute name="persons" use="required"/>
+        <attribute name="typeRoom" use="optional" default="coach" type="string"/>
+        <attribute name="persons" use="required" type="int"/>
     </complexType>
 </schema>
