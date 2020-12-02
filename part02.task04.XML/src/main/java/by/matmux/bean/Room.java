@@ -8,8 +8,11 @@ public class Room {
 
     public Room() {
     }
-
+  
     public String getTypeRoom() {
+    	if (typeRoom == null) {
+			return "coach";
+		}
         return typeRoom;
     }
 

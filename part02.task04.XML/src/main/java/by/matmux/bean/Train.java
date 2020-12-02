@@ -7,6 +7,9 @@ public class Train extends Transport {
     }
 
     public String getRailwayCar() {
+    	if (railwayCar == null) {
+			return "second-class";
+			}
         return railwayCar;
     }
 
