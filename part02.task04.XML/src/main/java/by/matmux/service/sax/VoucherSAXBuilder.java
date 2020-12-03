@@ -24,13 +24,8 @@ public class VoucherSAXBuilder extends AbstractVouchersBuilder {
 			reader = XMLReaderFactory.createXMLReader();
 			reader.setContentHandler(vh);
 		} catch (SAXException e) {
-			log.debug("ошибка SAX парсера");
+	 		log.debug("ошибка SAX парсера");
 		}
-	}
-
-	@Override
-	public Set<Voucher> getVouchers() {
-		return voucher;
 	}
 
 	@Override

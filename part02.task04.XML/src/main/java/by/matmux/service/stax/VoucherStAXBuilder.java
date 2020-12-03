@@ -34,10 +34,6 @@ public class VoucherStAXBuilder extends AbstractVouchersBuilder {
 		inputFactory = XMLInputFactory.newInstance();
 	}
 
-	public Set<Voucher> getVouchers() {
-		return vouchers;
-	}
-
 	public void buildSetVouchers(String fileName) {
 		FileInputStream inputStream = null;
 		XMLStreamReader reader = null;

@@ -9,7 +9,7 @@
         <Logger name="by.matmux.service" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
-        <Logger name="by.matmux.view" level="debug" additivity="false">
+        <Logger name="by.matmux.controller" level="debug" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
         <Root level="error">

@@ -39,10 +39,6 @@ public class VoucherDOMParser extends AbstractVouchersBuilder{
 		}
 	}
 
-	public Set<Voucher> getVouchers() {
-		return vouchers;
-	}
-
 	public void buildSetVouchers(String fileName) {
 		Document doc = null;
 		try {
