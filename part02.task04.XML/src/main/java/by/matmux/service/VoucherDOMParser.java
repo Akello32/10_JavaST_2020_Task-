@@ -24,7 +24,7 @@ import java.util.HashSet;
 import java.util.Locale;
 import java.util.Set;
 
-public class VoucherDOMParser {
+public class VoucherDOMParser extends AbstractVouchersBuilder{
 	private static final Logger log = LogManager.getLogger(VoucherDOMParser.class);
 	private Set<Voucher> vouchers;
 	private DocumentBuilder docBuilder;

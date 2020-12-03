@@ -10,8 +10,9 @@ import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.XMLReaderFactory;
 
 import by.matmux.bean.Voucher;
+import by.matmux.service.AbstractVouchersBuilder;
 
-public class VoucherSAXBuilder {
+public class VoucherSAXBuilder extends AbstractVouchersBuilder {
 	private static final Logger log = LogManager.getLogger(VoucherSAXBuilder.class);
 	private Set<Voucher> voucher;
 	private VoucherHandler vh;
@@ -27,10 +28,12 @@ public class VoucherSAXBuilder {
 		}
 	}
 
+	@Override
 	public Set<Voucher> getVouchers() {
 		return voucher;
 	}
 
+	@Override
 	public void buildSetVouchers(String fileName) {
 		try {
 			reader.parse(fileName);

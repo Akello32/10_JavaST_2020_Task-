@@ -19,11 +19,13 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import by.matmux.bean.Countries;
+import by.matmux.bean.Train;
 import by.matmux.bean.Voucher;
 import by.matmux.bean.VoucherEnum;
+import by.matmux.service.AbstractVouchersBuilder;
 import by.matmux.service.sax.VoucherHandler;
 
-public class VoucherStAXBuilder {
+public class VoucherStAXBuilder extends AbstractVouchersBuilder {
 	private static final Logger log = LogManager.getLogger(VoucherStAXBuilder.class);
 	private HashSet<Voucher> vouchers = new HashSet<>();
 	private XMLInputFactory inputFactory;
@@ -32,7 +34,7 @@ public class VoucherStAXBuilder {
 		inputFactory = XMLInputFactory.newInstance();
 	}
 
-	public Set<Voucher> geVouchers() {
+	public Set<Voucher> getVouchers() {
 		return vouchers;
 	}
 
@@ -44,10 +46,10 @@ public class VoucherStAXBuilder {
 			inputStream = new FileInputStream(new File(fileName));
 			reader = inputFactory.createXMLStreamReader(inputStream);
 			while (reader.hasNext()) {
-				int type = reader.next();
+			int type = reader.next();
 				if (type == XMLStreamConstants.START_ELEMENT) {
 					name = reader.getLocalName();
-					if (VoucherEnum.valueOf(name.toUpperCase()) == VoucherEnum.TOURISTVOUCHERS) {
+					if (VoucherEnum.valueOf(name.toUpperCase()) == VoucherEnum.TOURISTVOUCHER) {
 						Voucher st = buildVoucher(reader);
 						vouchers.add(st);
 					}
@@ -71,7 +73,11 @@ public class VoucherStAXBuilder {
 	private Voucher buildVoucher(XMLStreamReader reader) throws XMLStreamException {
 		Voucher vch = new Voucher();
 		vch.setName(reader.getAttributeValue(null, VoucherEnum.NAME.getValue()));
-		vch.setCountry(Countries.valueOf(reader.getAttributeValue(null, VoucherEnum.COUNTRY.getValue())));
+		if (reader.getAttributeValue(null, VoucherEnum.COUNTRY.getValue()) != null) {
+			Countries countries = Countries.valueOf(reader.getAttributeValue(null, VoucherEnum.COUNTRY.getValue()));
+			vch.setCountry(countries);
+		}
+		
 		String name;
 		while (reader.hasNext()) {
 			int type = reader.next();
@@ -87,26 +93,35 @@ public class VoucherStAXBuilder {
 						log.debug("Error when entering data");
 					}
 					break;
-/*				case TELEPHONE:
+				case DAYS:
 					name = getXMLText(reader);
-					vch.setTelephone(Integer.parseInt(name));
+					vch.setDays(Integer.parseInt(name));
 					break;
-				case ADDRESS:
-					vch.setAddress(getXMLAddress(reader));
+				case COST:
+					name = getXMLText(reader);
+					vch.setCost(Integer.parseInt(name));
+					break;
+				case AIRPLANE:
+					vch.setTransport(AirplaneGetXML.getXMLTransport(reader));
+					break;
+				case TRAIN:
+					vch.setTransport(TrainGetXML.getXMLTransport(reader));
+					break;
+				case HOTEL:
+					vch.setHotel(HotelGetXML.getXMLHotel(reader));
 					break;
 				}
 				break;
 			case XMLStreamConstants.END_ELEMENT:
 				name = reader.getLocalName();
-				if (StudentEnum.valueOf(name.toUpperCase()) == StudentEnum.STUDENT) {
-					return vch;
+				if (VoucherEnum.valueOf(name.toUpperCase()) == VoucherEnum.TOURISTVOUCHER) {
+				return vch;
 				}
 				break;
-			}*/
+			}
 		}
-		throw new XMLStreamException("Unknown element in tag Student");
+		throw new XMLStreamException("Unknown element in tag Voucher");
 	}
-	
 	private String getXMLText(XMLStreamReader reader) throws XMLStreamException {
 		String text = null;
 		if (reader.hasNext()) {

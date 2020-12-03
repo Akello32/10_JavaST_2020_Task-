@@ -1,42 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <touristVouchers xmlns="http://matmux.by/tourism"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://matmux.by/tourism tourism.xsd">
-    <touristVoucher nameVoucher="FFF" country="ENG">
-        <date>2021-02-12</date>
-        <days>2</days>
-        <cost>500</cost>
-        <airplane>
-            <brand>SuperJet</brand>
-            <yearOfManufacture>2020</yearOfManufacture>
-            <seat>10</seat>
-            <airlines>BelAvia</airlines>
-        </airplane>
-        <hotel>
-            <rating>3</rating>
-            <meals>BB</meals>
-            <room typeRoom="LUX" persons="3">
-                <TV>true</TV>
-                <conditioner>false</conditioner>
-            </room>
-        </hotel>
-    </touristVoucher>
-        <touristVoucher nameVoucher="AAA" country="RUS">
-        <date>2022-01-10</date>
-        <days>5</days>
-        <cost>600</cost>
-        <train railwayCar="business-class">
-            <brand>AN-500</brand>
-            <yearOfManufacture>1990</yearOfManufacture>
-        </train>
-        <hotel>
-            <rating>3</rating>
-            <meals>BB</meals>
-            <room typeRoom="LUX" persons="3">
-                <TV>true</TV>
-                <conditioner>false</conditioner>
-            </room>
-        </hotel>
-    </touristVoucher>
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://matmux.by/tourism tourism.xsd">
+	<touristVoucher nameVoucher="FFF" country="ENG">
+		<date>2021-02-12</date>
+		<days>2</days>
+		<cost>500</cost>
+		<airplane>
+			<brand>SuperJet</brand>
+			<yearOfManufacture>2020</yearOfManufacture>
+			<seat>10</seat>
+			<airlines>BelAvia</airlines>
+		</airplane>
+		<hotel>
+			<rating>3</rating>
+			<meals>BB</meals>
+			<room typeRoom="LUX" persons="3">
+				<TV>true</TV>
+				<conditioner>false</conditioner>
+			</room>
+		</hotel>
+	</touristVoucher>
+	
+	<touristVoucher nameVoucher="AAA" country="RUS">
+		<date>2022-01-10</date>
+		<days>5</days>
+		<cost>600</cost>
+		<train railwayCar="business-class">
+			<brand>AN-500</brand>
+			<yearOfManufacture>1990</yearOfManufacture>
+		</train>
+		<hotel>
+			<rating>3</rating>
+			<meals>BB</meals>
+			<room typeRoom="LUX" persons="3">
+				<TV>true</TV>
+				<conditioner>false</conditioner>
+			</room>
+		</hotel>
+	</touristVoucher>
+	
+		<touristVoucher nameVoucher="BBB" country="RUS">
+		<date>2003-11-22</date>
+		<days>8</days>
+		<cost>400</cost>
+		<train>
+			<brand>RN-550</brand>
+			<yearOfManufacture>1995</yearOfManufacture>
+		</train>
+		<hotel>
+			<rating>3</rating>
+			<meals>BB</meals>
+			<room persons="2">
+				<TV>true</TV>
+				<conditioner>false</conditioner>
+			</room>
+		</hotel>
+	</touristVoucher>
+	
+		<touristVoucher nameVoucher="AncietLondon" country="ENG">
+		<date>2022-01-10</date>
+		<days>13</days>
+		<cost>1500</cost>
+		<airplane>
+			<brand>Сornhusker</brand>
+			<yearOfManufacture>2006</yearOfManufacture>
+			<seat>133</seat>
+			<airlines>Emirates</airlines>
+		</airplane>
+		<hotel>
+			<rating>3</rating>
+			<meals>BB</meals>
+			<room typeRoom="LUX" persons="3">
+				<TV>true</TV>
+				<conditioner>false</conditioner>
+			</room>
+		</hotel>
+	</touristVoucher>
+	
 </touristVouchers>
